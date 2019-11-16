@@ -63,9 +63,8 @@ class News extends Entity
         $this->date_update = $dateUpdate;
     }
 
-    // GETTER //
 
-  
+    // GETTER //
 
     public function author()
     {
