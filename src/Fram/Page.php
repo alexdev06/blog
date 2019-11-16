@@ -21,7 +21,9 @@ class Page extends ApplicationComponent
             throw new \RuntimeException('La vue spécifiée n\'existe pas');
         }
 
+        $visitor = $this->app->visitor();
         extract($this->vars);
+        
         ob_start();
             require $this->contentFile;
         $content = ob_get_clean();
