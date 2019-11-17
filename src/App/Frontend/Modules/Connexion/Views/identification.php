@@ -5,17 +5,28 @@
         <div class="row">
             <div class="col-lg-10 mx-auto my-4">
                 <form action="" method="post">
-                    <label>Pseudo :</label>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Login</label>
+                            <input type="text" name="login" class="form-control" placeholder="Login" id="login" required data-validation-required-message="Entrez votre login.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Mot de passe</label>
+                            <input type="password" name="password" class="form-control" placeholder="Mot de passe" id="password" required data-validation-required-message="Entrez votre mot de passe.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
                     <br />
-                    <input type="text" name="login" />
-                    <br />
-                    
-                    <label>Mot de passe :</label><br />
-                    <input type="password" name="password" />
-                    <br />
-                    <br />
-                    <input type="submit" value="Connexion" />
-                </form> 
+                    <div id="success"></div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <button type="submit" class="btn btn-primary btn-lg">Se connecter</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
