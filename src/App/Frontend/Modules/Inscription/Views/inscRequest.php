@@ -1,27 +1,56 @@
 <section class="content-page" style="margin-top: 150px">
     <h2 class="text-center"><?= $title ?></h2>
-    <form action="" method="post">
-        <div class="form-group">
-            <label for="name">Prénom :</label><br />
-            <input type="text" id="name" name="name" class="form-control" /><br />
-        </div>
-        <div class="form-group">
-            <label for="last_name">Nom :</label><br />
-            <input type="text" id="last_name" name="last_name" class="form-control" /><br />
-        </div>
-        <div class="form-group">
-            <label for="username">Pseudo :</label><br />
-            <input type="text" id="username" name="username" class="form-control" /><br />
-        </div>
-        <div class="form-group">
-            <label for="email">Email :</label><br />
-            <input type="email" id="email" name="email"  class="form-control"/><br />
-        </div>
-        <div class="form-group">
-            <label for="password">Mot de passe :</label><br />
-            <input type="password" id="password" name="password" class="form-control" /><br />
-        </div>
-        <input class="btn btn-success btn-lg" type="submit" value="Envoyer" />
-        <input class="btn btn-success btn-lg" type="reset" value="Réinitialiser">
-    </form> 
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto my-4">
+                <form action="" method="post" name="sentMessage" id="contactForm" novalidate="novalidate">
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Prénom</label>
+                            <input type="text" name="name" class="form-control" placeholder="Prénom" id="name" required data-validation-required-message="Entrez votre prénom.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Nom</label>
+                            <input type="text" name="lastName" class="form-control" placeholder="Nom" id="lastName" required data-validation-required-message="Entrez votre nom.">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Adresse email</label>
+                            <input type="email" name="email" class="form-control" placeholder="Adresse email" id="email" required data-validation-required-message="Entrez votre adresse email.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Login</label>
+                            <input type="text" name="login" class="form-control" placeholder="Login" id="login" required data-validation-required-message="Entrez votre login.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Mot de passe</label>
+                            <input type="password" name="password" class="form-control" placeholder="Mot de passe" id="password" required data-validation-required-message="Entrez votre mot de passe.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br />
+                    <div id="success"></div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <button type="submit" class="btn btn-primary btn-lg" id="sendMessageButton" onclick="return confirm('Valider votre choix?');">Envoyer</button>
+                        </div>
+                        <div class="form-group col-6">
+                            <button type="reset" class="btn btn-primary btn-lg" id="sendMessageButton">Réinitialiser</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>    
+    </div>
 </section>
