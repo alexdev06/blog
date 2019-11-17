@@ -95,6 +95,11 @@
   <!-- Copyright Section -->
   <section class="copyright py-4 text-center text-white">
     <div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <a href="/connexion">Connexion</a>
+        </div>
+    </div>
       <small>Copyright &copy; Your Website 2019</small>
     </div>
   </section>

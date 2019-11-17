@@ -5,4 +5,5 @@
     <route url="/news-([0-9]+)" module="News" action="show" vars="id"></route>
     <route url="/comment-news-([0-9]+)" module="News" action="insertComment" vars="news"></route>
     <route url="/inscription" module="Inscription" action="inscRequest"></route>
+    <route url="/connexion" module="Connexion" action="identification"></route>
 </routes>
