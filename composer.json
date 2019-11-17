@@ -3,5 +3,8 @@
         "psr-4": {
             "ADABlog\\": "src"
         }
+    },
+    "require": {
+        "phpmailer/phpmailer": "^6.1"
     }
 }
