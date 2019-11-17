@@ -28,6 +28,32 @@ class NewsManagerPDO extends NewsManager
         return $listNews;
     }
 
+    public function getListPagined($page)
+    {
+        $limite = 5;
+        $debut = ($page - 1) * $limite;
+        $sql = 'SELECT id , author, title, content, date_create, date_update FROM news ORDER BY date_create DESC LIMIT :limit OFFSET :debut';
+        $requete = $this->dao->prepare($sql);
+        
+        $requete->bindValue(':limit', $limite, \PDO::PARAM_INT);
+        $requete->bindValue(':debut', $debut, \PDO::PARAM_INT);
+        $requete->execute();
+
+        $requete->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\ADABlog\Entity\News');
+
+        $listeNews = $requete->fetchAll();
+
+        foreach ($listeNews as $News) {
+            $News->setDate_create(new \DateTime($News->date_create()));
+            $News->setDate_update(new \DateTime($News->date_Update()));
+        }
+
+        $requete->closeCursor();
+
+        return $listeNews;
+
+    }
+
     public function getUnique($id)
     {
         $sql = 'SELECT id, author, title, content, date_create, date_update FROM news WHERE id = :id';

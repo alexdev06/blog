@@ -7,13 +7,10 @@ use \ADABlog\Entity\News;
 abstract class NewsManager extends Manager
 {
     abstract public function getList($debut = -1, $limite = -1);
-
+    abstract public function getListPagined($page);
     abstract public function getUnique($id);
-
     abstract public function count();
-
     abstract public function delete($id);
-
     abstract public function modify(News $news);
 
     public function save(News $news)
