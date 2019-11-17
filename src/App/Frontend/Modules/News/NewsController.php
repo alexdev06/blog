@@ -2,6 +2,7 @@
 namespace ADABlog\App\Frontend\Modules\News;
 use ADABlog\Fram\BackController;
 use ADABlog\Fram\HTTPRequest;
+use ADABlog\Entity\Comment;
 
 class NewsController extends BackController
 {
@@ -30,5 +31,25 @@ class NewsController extends BackController
         $this->page->addVar('title', $news->title());
         $this->page->addVar('news', $news);
         $this->page->addVar('comments', $this->managers->getManagerOf('Comments')->getListOf($news->id()));
+    }
+
+    public function executeInsertComment(HTTPRequest $request)
+    {
+        $this->page->addVar('title', 'Ajout d\'un commentaire');
+        if ($request->postExists('pseudo')) {
+            $comment = new Comment([
+                'news_id' => $request->getData('news'),
+                'author' => $request->postData('pseudo'),
+                'content' => $request->postData('message')
+            ]);
+           
+            if ($comment->isValid()) {
+                $this->managers->getManagerOf('Comments')->save($comment);
+                $this->app->httpResponse()->redirect('news-'.$request->getData('news'));
+            } else {
+                $this->page->addVar('erreurs', $comment->erreurs());
+            }
+            $this->page->addVar('comment', $comment);
+        }
     }
 }
