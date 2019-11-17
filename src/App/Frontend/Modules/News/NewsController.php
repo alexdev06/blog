@@ -22,6 +22,38 @@ class NewsController extends BackController
         $this->page->addVar('listNews', $listNews);
     }
 
+    public function executeNewsPages(HTTPRequest $request)
+    {
+        $charactersLength = $this->app->config()->get('characters_length');
+        $this->page->addvar('title', 'Les news');
+
+        $this->page->addVar('page',$request->getData('page'));
+
+        $manager = $this->managers->getManagerOf('News');
+
+        $totalNews = $manager->count();
+        $totalPages = ceil($totalNews / 5);
+
+        if ($request->getData('page') > $totalPages) {
+            $this->app->httpResponse()->redirect404();
+        }
+        $listeNews = $manager->getListPagined($request->getData('page'));
+
+        foreach ($listeNews as $news) {
+            if (strlen($news->content()) > $charactersLength) {
+                $outset = substr($news->content(), 0, $charactersLength);
+                $outset = substr($outset, 0, strrpos($outset, ' ')) . '...';
+
+                $news->setContent($outset);
+            }
+        }
+
+
+        $this->page->addVar('totalPages', $totalPages);
+        $this->page->addVar('listeNews', $listeNews);
+
+    }
+
     public function executeShow(HTTPRequest $request)
     {
         $news = $this->managers->getManagerOf('News')->getUnique($request->getData('id'));
