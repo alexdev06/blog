@@ -12,4 +12,11 @@ class CommentsController extends BackController
         $this->page->addVar('comments', $this->managers->getManagerOf('Comments')->getList());
         $this->page->addVar('title', 'Les commentaires');
     }
+
+    public function executeDelete(HTTPRequest $request)
+    {
+        $this->managers->getManagerOf('Comments')->delete($request->getData('id'));
+        $this->app->visitor()->setFlash('Le commentaire a bien été supprimé !');
+        $this->app->httpResponse()->redirect('/admin-comments');
+    }
 }
