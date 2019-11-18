@@ -25,4 +25,48 @@ class NewsController extends BackController
         $this->app->httpResponse()->redirect('/admin-news');
     }
 
+    public function executeInsert(HTTPRequest $request)
+    {
+        if ($request->postExists('author')) {
+            $this->processForm($request);
+        }
+
+        $this->page->addVar('title', 'Ajout d\'une news');
+    }
+
+    public function processForm(HTTPRequest $request)
+    {
+        $news = new News([
+            'author' => $request->postData('author'),
+            'title' => $request->postData('title'),
+            'content' => $request->postData('content')
+        ]);
+
+
+        if ($request->postExists('id')) {
+            $news->setId($request->postData('id'));
+        }
+ 
+        if ($news->isValid()) {
+            $this->managers->getManagerOf('News')->save($news);
+            $this->app->visitor()->setFlash($news->isNew() ? 'La news a bien été ajoutée !' : 'La news a bien été modifiée!');
+            $this->app->httpResponse()->redirect('admin');
+        } else {
+            $this->page->addVar('erreurs', $news->erreurs());
+        }
+
+        $this->page->addVar('news', $news);
+    }
+
+    public function executeUpdate(HTTPRequest $request)
+    {
+        if ($request->postExists('author')) {
+            $this->processForm($request);
+        } else {
+            $this->page->addVar('news', $this->managers->getManagerOf('News')->getUnique($request->getData('id')));
+        }
+
+        $this->page->addVar('title', 'Modification d\'une news');
+    }
+
 }
