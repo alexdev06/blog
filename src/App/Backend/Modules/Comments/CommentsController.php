@@ -19,4 +19,11 @@ class CommentsController extends BackController
         $this->app->visitor()->setFlash('Le commentaire a bien été supprimé !');
         $this->app->httpResponse()->redirect('/admin-comments');
     }
+
+    public function executeUpdate(HTTPRequest $request)
+    {
+        $this->managers->getManagerOf('Comments')->modifyCommentStatus($request->getData('id'));
+        $this->app->visitor()->setFlash('Le commentaire a bien été modifié !');
+        $this->app->httpResponse()->redirect('/admin-comments');
+    }
 }
