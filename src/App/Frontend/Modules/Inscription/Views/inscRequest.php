@@ -1,10 +1,17 @@
 <section class="content-page" style="margin-top: 150px">
     <h2 class="text-center"><?= $title ?></h2>
     
-    <div class="container">
+    <div class="container" style="margin-bottom: 100px">
+    <?php
+    if ($visitor->hasFlash()) {
+        ?>
+        <p class="flash"> <?= $visitor->getFlash(); ?> </p>
+        <?php
+    }
+    ?>
         <div class="row">
             <div class="col-lg-10 mx-auto my-4">
-                <form action="" method="post" name="sentMessage" id="contactForm" novalidate="novalidate">
+                <form action="" method="post">
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                             <label>Prénom</label>
@@ -39,6 +46,14 @@
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            <label>Confirmez le mot de passe</label>
+                            <input type="password" name="passCheck" class="form-control" placeholder="Confirmer le mot de passe" id="passCheck" required data-validation-required-message="Confirmez votre mot de passe.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
                     <br />
                     <div id="success"></div>
                     <div class="row">
