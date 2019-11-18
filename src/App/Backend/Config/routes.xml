@@ -4,4 +4,5 @@
     <route url="/admin" module="Home" action="index"></route>
     <route url="/admin-disconnect" module="Disconnection" action="disconnect"></route>
     <route url="/admin-news" module="News" action="index"></route>
+    <route url="/admin-news-delete-([0-9]+)" module="News" action="delete" vars="id" ></route>
 </routes>
