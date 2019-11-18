@@ -1,3 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <routes>
+    <route url="/connection" module="Connection" action="identification"></route>
+    <route url="/admin" module="Home" action="index"></route>
+    <route url="/admin-disconnect" module="Disconnection" action="disconnect"></route>
 </routes>
