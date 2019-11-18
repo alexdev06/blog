@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-10 mx-auto my-4">
-                <form action="" method="post" name="sentMessage" id="contactForm" novalidate="novalidate">
+                <form action="" method="post">
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                             <label>Prénom</label>
