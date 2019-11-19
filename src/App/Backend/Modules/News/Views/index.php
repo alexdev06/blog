@@ -1,8 +1,6 @@
 <section class="content-page" style="margin-top: 150px">
     <h2 class="text-center"><?= $title ?></h2>
 
-    <p style="text-align: center">Il y a actuellement <?= $newsCount ?> news :</p>
-
     <div class="container" style="margin-bottom: 100px">
     <?php
     if ($visitor->hasFlash()) {
@@ -15,6 +13,13 @@
         <?php
     }
     ?>
+
+    <h3><a href="/admin-news-insert">Ajouter une news</a></h3>
+    <h3 class="text-center">Liste des news</h3>
+
+    <p style="text-align: center">Il y a actuellement <?= $newsCount ?> news :</p>
+
+
         <div class="row">
             <div class="col-lg-12 mx-auto my-4">
                 <table id="usetTable" class="table table-striped">

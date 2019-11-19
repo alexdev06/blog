@@ -51,7 +51,7 @@ class NewsController extends BackController
         if ($news->isValid()) {
             $this->managers->getManagerOf('News')->save($news);
             $this->app->visitor()->setFlash($news->isNew() ? 'La news a bien été ajoutée !' : 'La news a bien été modifiée!');
-            $this->app->httpResponse()->redirect('admin');
+            $this->app->httpResponse()->redirect('admin-news');
         } else {
             $this->page->addVar('erreurs', $news->erreurs());
         }
