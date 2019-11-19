@@ -16,7 +16,7 @@ class BackendApplication extends Application
         if ($this->visitor->isAuthenticated()) {
             $controller = $this->getController();
         } else {
-            $controller = new Modules\Connexion\ConnexionController($this, 'Connexion', 'identification');
+            $controller = new Modules\Connection\ConnectionController($this, 'Connection', 'identification');
         }
 
         $controller->execute();

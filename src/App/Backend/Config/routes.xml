@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <routes>
     <route url="/connection" module="Connection" action="identification"></route>
-    <route url="/admin" module="Home" action="index"></route>
     <route url="/admin-disconnect" module="Disconnection" action="disconnect"></route>
     <route url="/admin-news" module="News" action="index"></route>
     <route url="/admin-news-([0-9]+)" module="News" action="show" vars="id" ></route>
