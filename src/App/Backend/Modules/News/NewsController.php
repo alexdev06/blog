@@ -19,6 +19,20 @@ class NewsController extends BackController
         $this->page->addVar('comments', $this->managers->getManagerOf('Comments')->getListUnpublished());
     }
 
+    public function executeShow(HTTPRequest $request)
+    {
+        $news = $this->managers->getManagerOf('News')->getUnique($request->getData('id'));
+
+        if (empty($news)) {
+            $this->app->httpResponse()->redirect404();
+        }
+        
+        $this->page->addVar('visitor', $this->app->visitor());
+        $this->page->addVar('title', $news->title());
+        $this->page->addVar('news', $news);
+        $this->page->addVar('comments', $this->managers->getManagerOf('Comments')->getListOf($news->id()));
+    }
+
     public function executeDelete(HTTPRequest $request)
     {
         $this->managers->getManagerOf('News')->delete($request->getData('id'));
