@@ -17,4 +17,12 @@ class UsersController extends BackController
             $this->app->httpResponse()->redirect('/admin-home');
         }
     }
+
+    public function executeDelete(HTTPRequest $request)
+    {
+        if ($this->app->visitor()->isAdministrator() == true) {
+            $this->managers->getManagerOf('Users')->delete($request->getData('id'));
+            $this->app->httpResponse()->redirect('/admin-users');
+        }
+    }
 }
