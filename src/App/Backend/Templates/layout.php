@@ -43,23 +43,24 @@
 						<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/admin-news-insert">Ajouter une news</a>
 					</li>
 					<li class="nav-item mx-0 mx-lg-1">
-						<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/admin-news">Les News</a>
+						<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/admin-news">News</a>
 					</li>
 					<li class="nav-item mx-0 mx-lg-1">
-						<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/admin-comments">Les commentaires</a>
+						<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/admin-comments">Commentaires</a>
 					</li>
+					<?php 
+					if ($this->app->visitor()->isAdministrator() == true) {
+						?>
+						<li class="nav-item mx-0 mx-lg-1">
+							<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/admin-users">Utilisateurs</a>
+						</li>
+						<?php
+					}
+					?>
 					<li class="nav-item mx-0 mx-lg-1">
 						<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/admin-disconnect">Déconnexion</a>
 					</li>
-					<?php 
-                        if ($this->app->visitor()->isAdministrator() == true) {
-                            ?>
-							<li class="nav-item mx-0 mx-lg-1">
-								<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/admin-users">Utilisateurs</a>
-							</li>
-                            <?php
-                        }
-                        ?>     
+     
 
 				</ul>
 			</div>
