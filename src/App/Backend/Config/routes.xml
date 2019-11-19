@@ -10,4 +10,6 @@
     <route url="/admin-comments" module="Comments" action="index"></route>
     <route url="/admin-comments-delete-([0-9]+)" module="Comments" action="delete" vars="id"></route>
     <route url="/admin-comments-update-([0-9]+)" module="Comments" action="update" vars="id"></route>
+    <route url="/admin-users" module="Users" action="index"></route>
+
 </routes>
