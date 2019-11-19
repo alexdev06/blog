@@ -15,6 +15,9 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
+	<!-- DataTables CSS -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+	
 	<!-- Theme CSS -->
 	<link href="css/freelancer.min.css" rel="stylesheet">
 	<link href="css/frontend_custom.css" rel="stylesheet" >
@@ -124,6 +127,13 @@
 	<!-- Custom scripts for this template -->
 	<script src="js/freelancer.min.js"></script>
 
+	<!-- DataTables JQuery -->
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+	<script>
+        $(document).ready(function() {
+            $('#usetTable').DataTable();
+        } );
+    </script>
 </body>
 
 </html>
