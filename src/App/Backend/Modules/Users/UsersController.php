@@ -25,4 +25,12 @@ class UsersController extends BackController
             $this->app->httpResponse()->redirect('/admin-users');
         }
     }
+
+    public function executeUpdate(HTTPRequest $request)
+    {
+        if ($this->app->visitor()->isAdministrator() == true) {
+            $this->managers->getManagerOf('Users')->modifyMemberStatus($request->getData('id'));
+            $this->app->httpResponse()->redirect('/admin-users');
+        }
+    }
 }
