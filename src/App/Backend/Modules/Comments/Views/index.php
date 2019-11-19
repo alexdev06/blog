@@ -1,6 +1,6 @@
 <section class="content-page" style="margin-top: 150px">
     <h2 class="text-center"><?= $title ?></h2>
-    <table class="table table-striped">
+    <table id="usetTable" class="table table-striped">
         <thead class="thead-dark">
             <tr><th>Auteur</th><th>News</th><th>Contenu</th><th>Date d'ajout</th><th>Status</th><th>Action</th></tr>
         </thead>

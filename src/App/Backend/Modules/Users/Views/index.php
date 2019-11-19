@@ -3,7 +3,7 @@
     <?php
     if (isset($listUsers)) {
     ?>
-    <table class="table table-striped mt5">
+    <table id="usetTable" class="table table-striped mt5">
         <thead class="thead-dark">
             <tr>
                 <th>Prénom</th>
