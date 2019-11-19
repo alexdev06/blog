@@ -84,7 +84,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					<a href="/connexion">Connexion</a>
+					<a href="/connection">Connexion</a>
 				</div>
 			</div>
 			<small>Copyright &copy; blog.alexandremanteaux.fr 2019</small>

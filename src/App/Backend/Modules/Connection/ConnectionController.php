@@ -9,6 +9,6 @@ class ConnectionController extends BackController
 {
     public function executeIdentification(HTTPRequest $request)
     {
-        $this->app->httpResponse()->redirect('/connexion');
+        $this->app->httpResponse()->redirect('/connection');
     }
 }

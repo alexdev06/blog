@@ -1,11 +1,11 @@
 <?php
-namespace ADABlog\App\Frontend\Modules\Connexion;
+namespace ADABlog\App\Frontend\Modules\Connection;
 
 use \ADABlog\Fram\BackController;
 use \ADABlog\Fram\HTTPRequest;
 
 
-class ConnexionController extends BackController
+class ConnectionController extends BackController
 {
     public function executeIdentification(HTTPRequest $request)
     {
@@ -36,7 +36,7 @@ class ConnexionController extends BackController
                     }
                 } else {
                     $this->app->visitor()->setFlash('Mot de passe incorrect');
-                    $this->app->httpResponse()->redirect('/connexion');
+                    $this->app->httpResponse()->redirect('/connection');
                 }
              }
         }
