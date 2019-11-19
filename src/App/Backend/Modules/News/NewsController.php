@@ -10,12 +10,27 @@ class NewsController extends BackController
     public function executeIndex(HTTPRequest $request)
     {
         $this->page->addVar('title', 'Gestion des news');
+        $this->page->addVar('visitor', $this->app->visitor());
         $manager = $this->managers->getManagerOf('News');
 
         $this->page->addVar('listNews', $manager->getList());
         $this->page->addVar('newsCount', $manager->count());
 
         $this->page->addVar('comments', $this->managers->getManagerOf('Comments')->getListUnpublished());
+    }
+
+    public function executeShow(HTTPRequest $request)
+    {
+        $news = $this->managers->getManagerOf('News')->getUnique($request->getData('id'));
+
+        if (empty($news)) {
+            $this->app->httpResponse()->redirect404();
+        }
+        
+        $this->page->addVar('visitor', $this->app->visitor());
+        $this->page->addVar('title', $news->title());
+        $this->page->addVar('news', $news);
+        $this->page->addVar('comments', $this->managers->getManagerOf('Comments')->getListOf($news->id()));
     }
 
     public function executeDelete(HTTPRequest $request)
@@ -50,7 +65,7 @@ class NewsController extends BackController
         if ($news->isValid()) {
             $this->managers->getManagerOf('News')->save($news);
             $this->app->visitor()->setFlash($news->isNew() ? 'La news a bien été ajoutée !' : 'La news a bien été modifiée!');
-            $this->app->httpResponse()->redirect('admin');
+            $this->app->httpResponse()->redirect('admin-news');
         } else {
             $this->page->addVar('erreurs', $news->erreurs());
         }
