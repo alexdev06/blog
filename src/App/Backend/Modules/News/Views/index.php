@@ -27,6 +27,7 @@
                         <tr>
                             <th>Auteur</th>
                             <th>Titre</th>
+                            <th>Chapô</th>
                             <th>Date d'ajout</th>
                             <th>Dernière modification</th>
                             <th>Action</th>
@@ -39,8 +40,9 @@
                         echo '<tr>
                             <td>', $news['author'], '</td>
                             <td>', $news['title'], '</td>
-                            <td>le ', $news['date_create']->format('d/m/Y à H\hi'), '</td>
-                            <td>', ($news['date_create'] == $news['date_uptdate'] ? '-' : 'le '.$news['date_update']->format('d/m/Y à H\hi')), '</td>
+                            <td>', $news['lead'], '</td>
+                            <td>', $news['date_create']->format('d/m/Y à H\hi'), '</td>
+                            <td>', ($news['date_create'] == $news['date_uptdate'] ? '-' : $news['date_update']->format('d/m/Y à H\hi')), '</td>
                             <td><a href="admin-news-update-', $news['id'], '">Modifier</a><br /> <a onclick="return confirm(\'Valider votre choix?\');" href="admin-news-delete-', $news['id'], '">Supprimer</a><br /> <a href="admin-news-', $news['id'], '">Afficher</a></td>
                         </tr>', "\n";
                         }
