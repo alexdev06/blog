@@ -1,13 +1,13 @@
 <?php
-namespace ADABlog\App\Frontend\Modules\Inscription;
+namespace ADABlog\App\Frontend\Modules\Registration;
 
 use ADABlog\Fram\BackController;
 use ADABlog\Fram\HTTPRequest;
 use ADABlog\Entity\User;
 
-class InscriptionController extends BackController
+class RegistrationController extends BackController
 {
-    public function executeInscRequest(HTTPRequest $request)
+    public function executeRegistRequest(HTTPRequest $request)
     {
         $this->page->addVar('title', 'Inscription');
         $this->page->addVar('visitor', $this->app->visitor());
