@@ -49,7 +49,6 @@ class NewsController extends BackController
             }
         }
 
-
         $this->page->addVar('totalPages', $totalPages);
         $this->page->addVar('listeNews', $listeNews);
 

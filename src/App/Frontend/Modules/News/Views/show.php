@@ -23,6 +23,9 @@
         <div class="row">
             <div class="col-lg-10 mx-auto my-4">
                 <p>Par <em><?= $news['author'] ?></em>, le <?= $news['date_create']->format('d/m/Y à H\hi') ?></p>
+
+                <p class="lead"><?= $news['lead'] ?></p>
+
                 <p><?= nl2br($news['content']) ?></p>
 
                 <?php if ($news['date_create'] != $news['date_update']) { ?>
