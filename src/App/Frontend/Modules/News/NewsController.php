@@ -26,6 +26,7 @@ class NewsController extends BackController
     {
         $charactersLength = $this->app->config()->get('characters_length');
         $this->page->addvar('title', 'Les news');
+        $this->page->addVar('visitor', $this->app->visitor());
 
         $this->page->addVar('page',$request->getData('page'));
 
@@ -60,6 +61,7 @@ class NewsController extends BackController
         if (empty($news)) {
             $this->app->httpResponse()->redirect404();
         }
+        $this->page->addVar('visitor', $this->app->visitor());
         $this->page->addVar('title', $news->title());
         $this->page->addVar('news', $news);
         $this->page->addVar('comments', $this->managers->getManagerOf('Comments')->getListPublishedOf($news->id()));
@@ -77,11 +79,14 @@ class NewsController extends BackController
            
             if ($comment->isValid()) {
                 $this->managers->getManagerOf('Comments')->save($comment);
+                $this->app->visitor()->setFlash('Le commentaire a été envoyé.');
                 $this->app->httpResponse()->redirect('news-'.$request->getData('news'));
+                
             } else {
                 $this->page->addVar('erreurs', $comment->erreurs());
             }
             $this->page->addVar('comment', $comment);
+            
         }
     }
 }

@@ -2,6 +2,24 @@
     <h2 class="text-center"><?= $title ?></h2>
 
     <div class="container">
+
+    <?php
+    if ($visitor->hasFlash()) {
+        ?>
+        <div class="row">
+            <div class="col-lg-10 mx-auto my-4">
+                <p class="flash text-center"> <?= $visitor->getFlash(); ?> </p>
+            </div>
+        </div>
+        <?php
+    }
+    ?>
+        <div class="row mt-4">
+            <div class="col-lg-10 mx-auto">  
+                <p class="lead">Vous souhaitez contribuer activement à la vie du blog? Poster des news et valider les commentaires?  Pour celà, remplissez le formulaire d'inscription et votre candidature sera étudiée avec le plus grand soin.</p>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-lg-10 mx-auto my-4">
                 <form action="" method="post">

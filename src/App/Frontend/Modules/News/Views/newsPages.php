@@ -2,6 +2,25 @@
     <h2 class="text-center"><?= $title ?></h2>
 
     <div class="container" style="margin-bottom: 100px">
+
+    <?php
+    if ($visitor->hasFlash()) {
+        ?>
+        <div class="row">
+            <div class="col-lg-10 mx-auto my-4">
+                <p class="flash text-center"> <?= $visitor->getFlash(); ?> </p>
+            </div>
+        </div>
+        <?php
+    }
+    ?>
+
+        <div class="row mt-4">
+            <div class="col-lg-10 mx-auto">  
+                <p class="lead">Retrouvez les dernières news concernant les nouvelles technologies et le développement web.</p>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-lg-10 mx-auto my-4">
             <?php

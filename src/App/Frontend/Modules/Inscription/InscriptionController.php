@@ -35,6 +35,7 @@ class InscriptionController extends BackController
                     $this->app->visitor()->setFlash('L\'adresse email existe déjà!');
                 } else {
                     $this->managers->getManagerOf('Users')->add($user);
+                    $this->app->visitor()->setFlash('La demande d\'inscription a bien été enregistrée');
                 }
             }
         }
