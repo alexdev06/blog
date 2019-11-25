@@ -8,6 +8,18 @@
     </div>
 
     <div class="container">
+    <?php
+    if ($visitor->hasFlash()) {
+        ?>
+        <div class="row">
+            <div class="col-lg-10 mx-auto my-4">
+                <p class="flash text-center"> <?= $visitor->getFlash(); ?> </p>
+            </div>
+        </div>
+        <?php
+    }
+    ?>
+
         <div class="row">
             <div class="col-lg-10 mx-auto my-4">
                 <p>Par <em><?= $news['author'] ?></em>, le <?= $news['date_create']->format('d/m/Y à H\hi') ?></p>
