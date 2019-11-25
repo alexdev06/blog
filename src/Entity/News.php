@@ -7,6 +7,7 @@ class News extends Entity
 {
     protected $author;
     protected $title;
+    protected $lead;
     protected $content;
     protected $date_create;
     protected $date_update;
@@ -19,7 +20,7 @@ class News extends Entity
 
     public function isValid()
     {
-        return !( empty($this->author)  || empty($this->title) || empty($this->content));
+        return !( empty($this->author)  || empty($this->title) || empty($this->lead) || empty($this->content));
     }
 
     // SETTERS //
@@ -43,6 +44,14 @@ class News extends Entity
         $this->title = $title;
     }
 
+    public function setLead($lead)
+    {   
+        if (!is_string($lead) || empty($lead)) {
+            $this->erreurs[] = self::LEAD_INVALID;
+        }
+
+        $this->lead = $lead;
+    }
     public function setContent($content)
     {
 
@@ -76,6 +85,11 @@ class News extends Entity
         return $this->title;
     }
  
+    public function lead()
+    {
+        return $this->lead;
+    }
+
     public function content()
     {
         return $this->content;

@@ -13,7 +13,6 @@ class UsersController extends BackController
             $this->page->addVar('title', 'Gestion des utilisateurs');
             $manager = $this->managers->getManagerOf('Users');
             $this->page->addVar('listUsers', $manager->getList());
-
         } else {
             $this->app->httpResponse()->redirect('/admin-home');
         }
