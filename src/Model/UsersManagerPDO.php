@@ -7,7 +7,7 @@ class UsersManagerPDO extends UsersManager
 {
     public function add(User $user)
     {
-        $sql = 'INSERT INTO user VALUES(NULL, :name, :last_name, :username, :email, :password, 0, 0)';
+        $sql = 'INSERT INTO user VALUES(NULL, :name, :last_name, :username, :email, :password, NOW(), 0, 0)';
         $request = $this->dao->prepare($sql);
 
         $request->bindValue(':name' , $user->name());
@@ -22,7 +22,7 @@ class UsersManagerPDO extends UsersManager
 
     public function get($login)
     {
-        $sql = 'SELECT username, password, member_status, administrator_status FROM user WHERE username = :username';
+        $sql = 'SELECT username, password, date_registration, member_status, administrator_status FROM user WHERE username = :username';
         $request = $this->dao->prepare($sql);
 
         $request->bindValue(':username',$login);
@@ -36,7 +36,7 @@ class UsersManagerPDO extends UsersManager
 
     public function getId($id)
     {
-        $sql = 'SELECT id, name, last_name, username, member_status, administrator_status FROM user WHERE id = :id';
+        $sql = 'SELECT id, name, last_name, username, date_registration, member_status, administrator_status FROM user WHERE id = :id';
         $request = $this->dao->prepare($sql);
 
         $request->bindValue(':id',$id);
@@ -50,12 +50,16 @@ class UsersManagerPDO extends UsersManager
 
     public function getList()
     {
-        $sql = 'SELECT id, name, last_name, username, email, member_status, administrator_status FROM user';
+        $sql = 'SELECT id, name, last_name, username, email, date_registration, member_status, administrator_status FROM user';
         $request = $this->dao->query($sql);
 
         $request->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'ADABlog\Entity\User');
         
         $listUsers = $request->fetchAll();
+
+        foreach ($listUsers as $Users) {
+            $Users->setDate_registration(new \DateTime($Users->date_registration()));
+        }
 
         $request->closeCursor();
 

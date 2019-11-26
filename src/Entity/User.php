@@ -10,6 +10,7 @@ class User extends Entity
     protected $username;
     protected $email;
     protected $password;
+    protected $date_registration;
     protected $member_status;
     protected $administrator_status;
 
@@ -69,6 +70,11 @@ class User extends Entity
         $this->password = $password;
     }
 
+    public function setDate_registration(\DateTime $dateRegistration)
+    {
+        $this->date_registration = $dateRegistration;
+    }
+
     public function setMember_status($status)
     {
         $this->member_status = $status;
@@ -105,6 +111,11 @@ class User extends Entity
     public function password()
     {
         return $this->password;
+    }
+
+    public function date_registration()
+    {
+        return $this->date_registration;
     }
 
     public function member_status()
