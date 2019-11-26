@@ -28,8 +28,8 @@
                             <th>Auteur</th>
                             <th>Titre</th>
                             <th>Chapô</th>
-                            <th>Date d'ajout</th>
-                            <th>Dernière modification</th>
+                            <th>Date ajout</th>
+                            <th>Dernière modification </th>
                             <th>Action</th>
                         </tr>
                     </thead>

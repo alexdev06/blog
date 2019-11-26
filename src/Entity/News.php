@@ -16,7 +16,7 @@ class News extends Entity
     const TITRE_INVALIDE = 2;
     const CONTENU_INVALIDE = 3;
     const USER_INVALIDE = 4;
-    const HEADER_INVALIDE = 5;
+    const LEAD_INVALIDE = 5;
 
     public function isValid()
     {
