@@ -14,7 +14,7 @@
     if ($visitor->hasFlash()) {
         ?>
         <div class="row">
-            <div class="col-lg-12 mx-auto my-4">
+            <div class="col-lg-6 mx-auto my-4">
                 <p class="flash"> <?= $visitor->getFlash(); ?> </p>
             </div>
         </div>
@@ -23,14 +23,10 @@
     ?>
 
     <div style="height: 200px" class="container d-flex align-items-center justify-content-center flex-column">
-    
-                <h2 class="text-center text-uppercase news-add">
-                    <a class="news-add" href="/admin-news-insert">Ajouter une news</a>
-                </h2>
-
+        <h2 class="text-center text-uppercase news-add">
+            <a class="news-add" href="/admin-news-insert">Ajouter une news</a>
+        </h2>
     </div>
-
-    
 
     <p>Il y a actuellement <?= $newsCount ?> news :</p>
 
@@ -53,9 +49,9 @@
                         foreach ($listNews as $news)
                         {
                         echo '<tr">
-                            <td>', $news['author'], '</td>
-                            <td>', $news['title'], '</td>
-                            <td>', $news['lead'], '</td>
+                            <td>', htmlspecialchars($news['author']), '</td>
+                            <td>', htmlspecialchars($news['title']), '</td>
+                            <td>', htmlspecialchars($news['lead']), '</td>
                             <td>', $news['date_create']->format('d/m/Y à H\hi'), '</td>
                             <td>', ($news['date_create'] == $news['date_uptdate'] ? '-' : $news['date_update']->format('d/m/Y à H\hi')), '</td>
                             <td><a href="admin-news-update-', $news['id'], '">Modifier</a><br /> <a onclick="return confirm(\'Valider la suppression ?\');" href="admin-news-delete-', $news['id'], '">Supprimer</a><br /> <a href="admin-news-', $news['id'], '">Afficher</a></td>

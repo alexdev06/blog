@@ -14,7 +14,7 @@
     if ($visitor->hasFlash()) {
         ?>
         <div class="row">
-            <div class="col-lg-10 mx-auto my-4">
+            <div class="col-lg-6 mx-auto my-4">
                 <p class="flash text-center"> <?= $visitor->getFlash(); ?> </p>
             </div>
         </div>
@@ -37,7 +37,7 @@
                 <h3><a href="news-<?= $news['id'] ?>"><?= htmlspecialchars($news['title']) ?></a></h3>
                 <p style="text-align: left;"><small><em>Modifiée le <?= $news['date_update']->format('d/m/Y à H\hi') ?></em></small></p>
 
-                <p class="lead"><?= $news['lead'] ?></p>
+                <p class="lead"><?= htmlspecialchars($news['lead']) ?></p>
                 
                 <p><?= nl2br(htmlspecialchars($news['content'])) ?> <a href="news-<?= $news['id'] ?>">lire la suite</a></p>
                 <hr />

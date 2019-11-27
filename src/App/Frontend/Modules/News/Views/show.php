@@ -12,7 +12,7 @@
     if ($visitor->hasFlash()) {
         ?>
         <div class="row">
-            <div class="col-lg-10 mx-auto my-4">
+            <div class="col-lg-6 mx-auto my-4">
                 <p class="flash text-center"> <?= $visitor->getFlash(); ?> </p>
             </div>
         </div>
@@ -24,9 +24,9 @@
             <div class="col-lg-10 mx-auto my-4">
                 <p class="intro-news">Par <em><?= $news['author'] ?></em>, le <?= $news['date_create']->format('d/m/Y à H\hi') ?></p>
 
-                <p class="lead justify"><?= $news['lead'] ?></p>
+                <p class="lead justify"><?= htmlspecialchars($news['lead']) ?></p>
 
-                <p class="justify"><?= nl2br($news['content']) ?></p>
+                <p class="justify"><?= nl2br(htmlspecialchars($news['content'])) ?></p>
 
                 <?php if ($news['date_create'] != $news['date_update']) { ?>
                 <p style="text-align: right;">

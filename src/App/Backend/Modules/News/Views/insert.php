@@ -13,7 +13,7 @@
     if ($visitor->hasFlash()) {
         ?>
         <div class="row">
-            <div class="col-lg-12 mx-auto my-4">
+            <div class="col-lg-6 mx-auto my-4">
                 <p class="flash"> <?= $visitor->getFlash(); ?> </p>
             </div>
         </div>
