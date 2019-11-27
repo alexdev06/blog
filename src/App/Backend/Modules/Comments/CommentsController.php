@@ -7,7 +7,7 @@ use \ADABlog\Fram\HTTPRequest;
 
 class CommentsController extends BackController
 {
-    public function executeIndex(HTTPRequest $request)
+    public function executeIndex()
     {
         $this->page->addVar('comments', $this->managers->getManagerOf('Comments')->getList());
         $this->page->addVar('title', 'Gestion des commentaires');

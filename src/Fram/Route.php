@@ -26,9 +26,10 @@ class Route
     {
         if (preg_match('`^' . $this->url . '$`', $url, $matches)) {
             return $matches;
-        } else {
-            return false;
-        }
+        } 
+
+        return false;
+        
     }
 
     public function setAction($action)

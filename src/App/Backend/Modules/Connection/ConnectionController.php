@@ -7,7 +7,7 @@ use \ADABlog\Fram\HTTPRequest;
 
 class ConnectionController extends BackController
 {
-    public function executeIdentification(HTTPRequest $request)
+    public function executeIdentification()
     {
         $this->app->httpResponse()->redirect('/connection');
     }

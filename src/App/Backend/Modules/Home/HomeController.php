@@ -6,7 +6,7 @@ use \ADABlog\Fram\HTTPRequest;
 
 class HomeController extends BackController
 {
-    public function executeIndex(HTTPRequest $request)
+    public function executeIndex()
         {
             $this->page->addVar('title', 'Accueil');
         }
