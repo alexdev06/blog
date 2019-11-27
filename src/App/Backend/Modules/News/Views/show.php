@@ -24,7 +24,7 @@
         
         <h2 class="text-center my-5">Liste des commentaires</h2>
 
-        <table id="usetTable" class="table table-striped">
+        <table id="usetTable" class="table table-striped dt_responsive">
             <thead class="thead">
                 <tr><th>Auteur</th><th>News</th><th>Contenu</th><th>Date d'ajout</th><th>Status</th><th>Action</th></tr>
             </thead>

@@ -1,12 +1,24 @@
+.content-page {
+    margin-top: 150px;
+    margin-bottom: 130px;
+}
+
+@media screen and (max-width: 900px) {
+    .content-page {
+        margin-top: 100px;
+        margin-bottom: 130px;
+    }
+
+    .news-show {
+        margin-top: 60px;
+    }
+}
+
+
 .flash {
     color: red;
     font-weight: bold;
     font-size: 1.4em;
-}
-
-.content-page {
-    margin-top: 150px;
-    margin-bottom: 130px;
 }
 
 .justify {
