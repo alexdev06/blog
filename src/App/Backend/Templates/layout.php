@@ -17,6 +17,7 @@
 
 	<!-- DataTables CSS -->
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/dataTables.responsive.css">
 	
 	<!-- Theme CSS -->
 	<link href="css/freelancer.min.css" rel="stylesheet">
@@ -124,6 +125,7 @@
 
 	<!-- DataTables JQuery -->
 	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.js"></script>
 	<script>
         $(document).ready(function() {
             $('#usetTable').DataTable();

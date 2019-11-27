@@ -1,4 +1,4 @@
-<section class="content-page">
+<section class="content-page news-show">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 mx-auto my-4">

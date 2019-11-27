@@ -22,7 +22,7 @@
     ?>
         <div class="row">
             <div class="col-lg-12 mx-auto my-4">
-                <table id="usetTable" class="table table-striped">
+                <table id="usetTable" class="table table-striped dt_responsive">
                     <thead class="thead">
                         <tr>
                             <th>Prénom</th>

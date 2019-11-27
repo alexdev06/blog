@@ -37,7 +37,7 @@
 
         <div class="row">
             <div class="col-lg-12 mx-auto my-4">
-                <table id="usetTable" class="table table-striped">
+                <table id="usetTable" class="table table-striped dt_responsive">
                     <thead class="thead">
                         <tr>
                             <th>Auteur</th>
@@ -58,7 +58,7 @@
                             <td>', $news['lead'], '</td>
                             <td>', $news['date_create']->format('d/m/Y à H\hi'), '</td>
                             <td>', ($news['date_create'] == $news['date_uptdate'] ? '-' : $news['date_update']->format('d/m/Y à H\hi')), '</td>
-                            <td><a href="admin-news-update-', $news['id'], '">Modifier</a><br /> <a onclick="return confirm(\'Valider votre choix?\');" href="admin-news-delete-', $news['id'], '">Supprimer</a><br /> <a href="admin-news-', $news['id'], '">Afficher</a></td>
+                            <td><a href="admin-news-update-', $news['id'], '">Modifier</a><br /> <a onclick="return confirm(\'Valider la suppression ?\');" href="admin-news-delete-', $news['id'], '">Supprimer</a><br /> <a href="admin-news-', $news['id'], '">Afficher</a></td>
                         </tr>', "\n";
                         }
                         ?>
