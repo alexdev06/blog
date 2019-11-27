@@ -1,5 +1,5 @@
 <section class="content-page" style="margin-top: 150px">
-    <h2 class="text-center"><?= $title ?></h2>
+    <h1 class="text-center titre-pages"><?= $title ?></h1>
     <div class="divider-custom divider-dark">
             <div class="divider-custom-line"></div>
             <div class="divider-custom-icon">
@@ -23,7 +23,7 @@
         <div class="row">
             <div class="col-lg-12 mx-auto my-4">
                 <table id="usetTable" class="table table-striped">
-                    <thead class="thead-dark">
+                    <thead class="thead">
                         <tr>
                             <th>Auteur</th>
                             <th>News</th>

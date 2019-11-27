@@ -1,5 +1,5 @@
 <section class="content-page" style="margin-top: 150px">
-    <h2 class="text-center"><?= $title ?></h2>
+    <h1 class="text-center"><?= $title ?></h1>
     <div class="divider-custom divider-dark">
             <div class="divider-custom-line"></div>
             <div class="divider-custom-icon">
@@ -23,11 +23,11 @@
     ?>
 
     <div style="height: 200px" class="container d-flex align-items-center justify-content-center flex-column">
-    <div class="divider-custom divider-dark">
-            <div class="divider-custom-line"></div>
-                <h3 class="text-center text-uppercase"><a href="/admin-news-insert">Ajouter une news</a></h3>
-            <div class="divider-custom-line"></div>
-        </div> 
+    
+                <h2 class="text-center text-uppercase news-add">
+                    <a class="news-add" href="/admin-news-insert">Ajouter une news</a>
+                </h2>
+
     </div>
 
     
@@ -38,7 +38,7 @@
         <div class="row">
             <div class="col-lg-12 mx-auto my-4">
                 <table id="usetTable" class="table table-striped">
-                    <thead class="thead-dark">
+                    <thead class="thead">
                         <tr>
                             <th>Auteur</th>
                             <th>Titre</th>
@@ -52,7 +52,7 @@
                         <?php
                         foreach ($listNews as $news)
                         {
-                        echo '<tr>
+                        echo '<tr">
                             <td>', $news['author'], '</td>
                             <td>', $news['title'], '</td>
                             <td>', $news['lead'], '</td>

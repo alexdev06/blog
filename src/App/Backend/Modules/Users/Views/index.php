@@ -1,5 +1,5 @@
 <section class="content-page" style="margin-top: 150px">
-    <h2 class="text-center"><?= $title ?></h2>
+    <h1 class="text-center"><?= $title ?></h1>
     <div class="divider-custom divider-dark">
             <div class="divider-custom-line"></div>
             <div class="divider-custom-icon">
@@ -23,7 +23,7 @@
         <div class="row">
             <div class="col-lg-12 mx-auto my-4">
                 <table id="usetTable" class="table table-striped">
-                    <thead class="thead-dark">
+                    <thead class="thead">
                         <tr>
                             <th>Prénom</th>
                             <th>Nom</th>
@@ -51,7 +51,7 @@
                                 <td>', $user['email'],'</td>
                                 <td>', $user['date_registration']->format('d/m/Y à H\hi'),'</td>
                                 <td>', $user['member_status'],'</td>
-                                <td><a onclick="return confirm(\'Valider votre choix?\');" href="admin-users-delete-',$user['id'],'">Supprimer</a><br /><a href="admin-users-update-',$user['id'],'">Modifier</a></td>
+                                <td><a onclick="return confirm(\'Valider la suppression ?\');" href="admin-users-delete-',$user['id'],'">Supprimer</a><br /><a href="admin-users-update-',$user['id'],'">Modifier</a></td>
                             </tr>', "\n";
                         }
                         ?>

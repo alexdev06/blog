@@ -1,5 +1,5 @@
 <section class="content-page" style="margin-top: 150px">
-    <h2 class="text-center"><?= $title ?></h2>
+    <h1 class="text-center"><?= $title ?></h1>
     <div class="container" style="margin-bottom: 100px">
     <?php
     if ($visitor->hasFlash()) {

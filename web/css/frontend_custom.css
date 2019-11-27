@@ -3,3 +3,32 @@
     font-weight: bold;
     font-size: 1.4em;
 }
+
+.content-page {
+    margin-top: 150px;
+    margin-bottom: 130px;
+}
+
+.justify {
+    text-align: justify;
+}
+
+.intro {
+    font-size: 1.3em;
+}
+
+em {
+    font-weight: bold;
+}
+
+#contact {
+    padding-top: 150px;
+}
+
+.titre-pages {
+    color: #2C3E50 !important;
+}
+
+.legend-comm, .intro-news {
+    font-size: 1.1em;
+}

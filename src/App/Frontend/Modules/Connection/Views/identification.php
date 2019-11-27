@@ -1,5 +1,13 @@
-<section class="content-page" style="margin-top: 150px">
-    <h2 class="text-center"><?= $title ?></h2>
+<section class="content-page">
+    <h1 class="text-center text-uppercase titre-pages"><?= $title ?></h1>
+    <div class="divider-custom divider">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="divider-custom-line"></div>
+    </div>
+
 
     <div class="container">
 
@@ -16,7 +24,7 @@
     ?>
         <div class="row mt-4">
             <div class="col-lg-10 mx-auto">  
-                <p class="lead text-center">Seuls les utilisateurs ayant été validés en tant que membre ont accès à l'espace d'administration.</p>
+                <p class="intro text-center">Seuls les utilisateurs ayant été validés en tant que membre ont accès à l'espace d'administration.</p>
             </div>
         </div>
 

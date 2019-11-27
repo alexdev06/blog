@@ -1,5 +1,13 @@
-<section class="content-page" style="margin-top: 150px">
-    <h2 class="text-center"><?= $title ?></h2>
+<section class="content-page">
+    <h1 class="text-center text-uppercase titre-pages"><?= $title ?></h1>
+    <div class="divider-custom divider">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="divider-custom-line"></div>
+    </div>
+
     
     <div class="container" style="margin-bottom: 100px">
     <?php
@@ -15,7 +23,7 @@
     ?>
         <div class="row mt-4">
             <div class="col-lg-10 mx-auto">  
-                <p class="lead">Vous souhaitez contribuer activement à la vie du blog ? Poster des news et valider les commentaires?  Pour devenir membre du blog, remplissez le formulaire d'inscription et votre candidature sera étudiée avec le plus grand soin.</p>
+                <p class="intro">Vous souhaitez contribuer activement à la vie du blog ? Poster des news et valider les commentaires?  Pour devenir membre du blog, remplissez le formulaire d'inscription et votre candidature sera étudiée avec le plus grand soin.</p>
             </div>
         </div>
 
