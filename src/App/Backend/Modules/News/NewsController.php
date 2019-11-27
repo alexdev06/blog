@@ -7,7 +7,7 @@ use \ADABlog\Entity\News;
 
 class NewsController extends BackController
 {
-    public function executeIndex(HTTPRequest $request)
+    public function executeIndex()
     {
         $this->page->addVar('title', 'Gestion des news');
         $this->page->addVar('visitor', $this->app->visitor());
