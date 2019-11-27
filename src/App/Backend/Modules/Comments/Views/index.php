@@ -1,5 +1,12 @@
 <section class="content-page" style="margin-top: 150px">
     <h2 class="text-center"><?= $title ?></h2>
+    <div class="divider-custom divider-dark">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="divider-custom-line"></div>
+        </div>
 
     <div class="container" style="margin-bottom: 100px">
     <?php
@@ -39,9 +46,9 @@
                                 <td>', $comment['author'], '</td>
                                 <td><a href="/admin-news-', $comment['news_id'], '">', $comment['news_id'],'</a></td>
                                 <td>', nl2br(htmlspecialchars($comment['content'])), '</td>
-                                <td>le ', $comment['date_create']->format('d/m/Y à H\hi'), '</td>
+                                <td>', $comment['date_create']->format('d/m/Y à H\hi'), '</td>
                                 <td>' . $comment['published'] . '</td>
-                                <td><a href="admin-comments-update-', $comment['id'], '">Modifier</a><br /> <a onclick="return confirm(\'Valider votre choix?\');" href="admin-comments-delete-', $comment['id'], '">Supprimer</a><br /> <a href="admin-news-', $comment['news_id'], '">News</a></td>
+                                <td><a href="admin-comments-update-', $comment['id'], '">Modifier</a><br /> <a onclick="return confirm(\'Confirmer la suppression ?\');" href="admin-comments-delete-', $comment['id'], '">Supprimer</a><br /> <a href="admin-news-', $comment['news_id'], '">News</a></td>
                             </tr>', "\n";
                         }
                         ?>

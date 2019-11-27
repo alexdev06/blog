@@ -9,7 +9,7 @@ class NewsController extends BackController
     public function executeFullList(HTTPRequest $request)
     {
         $charactersLength = $this->app->config()->get('characters_length');
-        $this->page->addvar('title', 'Les news');
+        $this->page->addvar('title', 'Les News');
         $manager = $this->managers->getManagerOf('News');
         $listNews = $manager->getList();
         foreach ($listNews as $news) {
@@ -25,7 +25,7 @@ class NewsController extends BackController
     public function executeNewsPages(HTTPRequest $request)
     {
         $charactersLength = $this->app->config()->get('characters_length');
-        $this->page->addvar('title', 'Les news');
+        $this->page->addvar('title', 'Les News');
         $this->page->addVar('visitor', $this->app->visitor());
 
         $this->page->addVar('page',$request->getData('page'));

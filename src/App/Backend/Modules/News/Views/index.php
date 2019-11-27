@@ -1,7 +1,15 @@
 <section class="content-page" style="margin-top: 150px">
     <h2 class="text-center"><?= $title ?></h2>
+    <div class="divider-custom divider-dark">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="divider-custom-line"></div>
+        </div>
 
     <div class="container" style="margin-bottom: 100px">
+
     <?php
     if ($visitor->hasFlash()) {
         ?>
@@ -14,10 +22,17 @@
     }
     ?>
 
-    <h3><a href="/admin-news-insert">Ajouter une news</a></h3>
-    <h3 class="text-center">Liste des news</h3>
+    <div style="height: 200px" class="container d-flex align-items-center justify-content-center flex-column">
+    <div class="divider-custom divider-dark">
+            <div class="divider-custom-line"></div>
+                <h3 class="text-center text-uppercase"><a href="/admin-news-insert">Ajouter une news</a></h3>
+            <div class="divider-custom-line"></div>
+        </div> 
+    </div>
 
-    <p style="text-align: center">Il y a actuellement <?= $newsCount ?> news :</p>
+    
+
+    <p>Il y a actuellement <?= $newsCount ?> news :</p>
 
 
         <div class="row">
