@@ -18,7 +18,7 @@
         </div>
 
         <!-- Masthead Subheading -->
-        <p class="masthead-subheading font-weight-light mb-0">Développeur Web</p>
+        <p class="masthead-subheading font-weight-bold mb-0">Développeur Web, toujours partant pour de nouveaux projets!</p>
 
     </div>
 </header>
@@ -69,7 +69,7 @@
 <div class="container">
 
     <!-- Contact Section Heading -->
-    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Me Contacter</h2>
+    <h2 class="text-center text-uppercase titre-pages" style="font-size: 2.5em">Me Contacter</h2>
 
     <!-- Icon Divider -->
     <div class="divider-custom">
@@ -83,7 +83,7 @@
     <!-- Contact Section Form -->
     <div class="row">
         <div class="col-lg-10 mx-auto">
-            <p class="lead">Vous souhaitez me contacter? Remplissez le formulaire ci-dessous et je vous répondrai dans les meilleurs délais.</p>
+            <p class="intro">Vous souhaitez me contacter? Remplissez le formulaire ci-dessous et je vous répondrai dans les meilleurs délais.</p>
         </div>
     </div>
     <br />

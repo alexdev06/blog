@@ -1,5 +1,13 @@
-<section class="content-page" style="margin-top: 150px">
-    <h2 class="text-center"><?= $title ?></h2>
+<section class="content-page">
+    <h1 class="text-center text-uppercase titre-pages"><?= $title ?></h1>
+    <div class="divider-custom divider">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="divider-custom-line"></div>
+    </div>
+
 
     <div class="container">
 
@@ -17,7 +25,7 @@
 
         <div class="row mt-4">
             <div class="col-lg-10 mx-auto">  
-                <p class="lead">
+                <p class="intro">
                     Pour laisser un message, remplissez le formulaire ci-dessous. <br />
                     Les commentaires ne sont publiés qu'après validation par l'équipe de modération.
                 </p>

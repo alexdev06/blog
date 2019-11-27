@@ -38,7 +38,8 @@ a:hover {
 
 .flash {
     color: red;
-    font-size: 1.3em;
+    font-weight: bold;
+    font-size: 1.4em;
 }
 
 .btn-primary {

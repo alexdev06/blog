@@ -1,5 +1,5 @@
 <section class="content-page" style="margin-top: 150px">
-    <h1 class="text-center"><?= $title ?></h1>
+    <h1 class="text-center titre-pages"><?= $title ?></h1>
     <div class="divider-custom divider-dark">
             <div class="divider-custom-line"></div>
             <div class="divider-custom-icon">
