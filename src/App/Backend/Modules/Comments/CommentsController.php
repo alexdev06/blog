@@ -10,7 +10,7 @@ class CommentsController extends BackController
     public function executeIndex(HTTPRequest $request)
     {
         $this->page->addVar('comments', $this->managers->getManagerOf('Comments')->getList());
-        $this->page->addVar('title', 'Les commentaires');
+        $this->page->addVar('title', 'Gestion des commentaires');
         $this->page->addVar('visitor', $this->app->visitor());
     }
 

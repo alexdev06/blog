@@ -17,13 +17,16 @@
 
         <div class="row mt-4">
             <div class="col-lg-10 mx-auto">  
-                <p class="lead">Vous souhaitez contribuer activement à la vie du blog? Poster des news et valider les commentaires?  Pour celà, remplissez le formulaire d'inscription et votre candidature sera étudiée avec le plus grand soin.</p>
+                <p class="lead">
+                    Pour laisser un message, remplissez le formulaire ci-dessous. <br />
+                    Les commentaires ne sont publiés qu'après validation par l'équipe de modération.
+                </p>
             </div>
         </div>
 
         <div class="row my-4">
             <div class="col-lg-10 mx-auto my-4">
-                <form action="" method="post">
+                <form  action="" method="post">
                     <div class="ontrol-group">
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                             <label>Pseudo</label>

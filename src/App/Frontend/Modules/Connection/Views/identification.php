@@ -16,7 +16,7 @@
     ?>
         <div class="row mt-4">
             <div class="col-lg-10 mx-auto">  
-                <p class="lead">Vous souhaitez contribuer activement à la vie du blog? Poster des news et valider les commentaires?  Pour celà, remplissez le formulaire d'inscription et votre candidature sera étudiée avec le plus grand soin.</p>
+                <p class="lead text-center">Seuls les utilisateurs ayant été validés en tant que membre ont accès à l'espace d'administration.</p>
             </div>
         </div>
 
