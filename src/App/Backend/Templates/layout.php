@@ -20,7 +20,7 @@
 	
 	<!-- Theme CSS -->
 	<link href="css/freelancer.min.css" rel="stylesheet">
-	<link href="css/frontend_custom.css" rel="stylesheet" >
+	<link href="css/backend_custom.css" rel="stylesheet" >
 
 </head>
 
@@ -29,8 +29,8 @@
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
 		<div class="container">
-			<a class="navbar-brand js-scroll-trigger" href="/admin">A.M Blog</a>
-			<button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+			<a class="navbar-brand js-scroll-trigger" href="/admin">Administration</a>
+			<button class="nav-butt navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 				Menu
 				<i class="fas fa-bars"></i>
 			</button>
@@ -68,7 +68,7 @@
 
 
 	<!-- Footer -->
-	<footer class="footer text-center sticky-footer-wrapper">
+	<footer class="footer text-center sticky-footer-wrapper" id="footer">
 		<div class="container">
 			<div class="row">
 
