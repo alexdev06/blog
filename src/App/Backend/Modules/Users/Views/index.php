@@ -13,7 +13,7 @@
     if ($visitor->hasFlash()) {
         ?>
         <div class="row">
-            <div class="col-lg-12 mx-auto my-4">
+            <div class="col-lg-6 mx-auto my-4">
                 <p class="flash"> <?= $visitor->getFlash(); ?> </p>
             </div>
         </div>
@@ -45,10 +45,10 @@
                                 $user['member_status'] = 'en attente';
                             }
                             echo '<tr>
-                                <td>', $user['name'], '</td>
-                                <td>', $user['last_name'], '</td>
-                                <td>', $user['username'],'</td>
-                                <td>', $user['email'],'</td>
+                                <td>', htmlspecialchars($user['name']), '</td>
+                                <td>', htmlspecialchars($user['last_name']), '</td>
+                                <td>', htmlspecialchars($user['username']),'</td>
+                                <td>', htmlspecialchars($user['email']),'</td>
                                 <td>', $user['date_registration']->format('d/m/Y à H\hi'),'</td>
                                 <td>', $user['member_status'],'</td>
                                 <td><a onclick="return confirm(\'Valider la suppression ?\');" href="admin-users-delete-',$user['id'],'">Supprimer</a><br /><a href="admin-users-update-',$user['id'],'">Modifier</a></td>

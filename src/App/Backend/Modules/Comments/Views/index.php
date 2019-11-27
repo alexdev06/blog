@@ -13,7 +13,7 @@
     if ($visitor->hasFlash()) {
         ?>
         <div class="row">
-            <div class="col-lg-12 mx-auto my-4">
+            <div class="col-lg-6 mx-auto my-4">
                 <p class="flash"> <?= $visitor->getFlash(); ?> </p>
             </div>
         </div>
@@ -43,7 +43,7 @@
                                 $comment['published'] = 'masqué';
                             }
                             echo '<tr>
-                                <td>', $comment['author'], '</td>
+                                <td>', htmlspecialchars($comment['author']), '</td>
                                 <td><a href="/admin-news-', $comment['news_id'], '">', $comment['news_id'],'</a></td>
                                 <td>', nl2br(htmlspecialchars($comment['content'])), '</td>
                                 <td>', $comment['date_create']->format('d/m/Y à H\hi'), '</td>

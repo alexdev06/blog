@@ -10,11 +10,11 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 mx-auto my-4">
-                <p>Par <em><?= $news['author'] ?></em>, le <?= $news['date_create']->format('d/m/Y à H\hi') ?></p>
+                <p>Par <em><?= htmlspecialchars($news['author']) ?></em>, le <?= $news['date_create']->format('d/m/Y à H\hi') ?></p>
 
-                <p class="lead justify"><?= $news['lead'] ?></p>
+                <p class="lead justify"><?= htmlspecialchars($news['lead']) ?></p>
 
-                <p class="justify"><?= nl2br($news['content']) ?></p>
+                <p class="justify"><?= nl2br(htmlspecialchars($news['content'])) ?></p>
 
                 <?php if ($news['date_create'] != $news['date_update']) { ?>
                 <p style="text-align: right;"><small><em>Modifiée le <?= $news['date_update']->format('d/m/Y à H\hi') ?></em></small></p>
@@ -39,7 +39,7 @@
                         $comment['published'] = 'masqué';
                     }
                     echo '<tr>
-                            <td>', $comment['author'], '</td>
+                            <td>', htmlspecialchars($comment['author']), '</td>
                             <td><a href="/admin-news-', $comment['news_id'], '">', $comment['news_id'],'</a></td>
                             <td>', nl2br(htmlspecialchars($comment['content'])), '</td>
                             <td>le ', $comment['date_create']->format('d/m/Y à H\hi'), '</td>
