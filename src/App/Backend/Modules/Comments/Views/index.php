@@ -22,15 +22,15 @@
     ?>
         <div class="row">
             <div class="col-lg-12 mx-auto my-4">
-                <table id="usetTable" class="table table-striped dt_responsive">
+                <table id="usetTable" class="table table-striped dt_responsive" style="width: 100%">
                     <thead class="thead">
                         <tr>
-                            <th>Auteur</th>
+                            <th data-priority="2">Auteur</th>
                             <th>News</th>
-                            <th>Contenu</th>
+                            <th data-priority="1">Contenu</th>
                             <th>Date d'ajout</th>
-                            <th>Status</th>
-                            <th>Action</th>
+                            <th data-priority="1">Status</th>
+                            <th data-priority="1">Action</th>
                         </tr>
                     </thead>
                     <tbody>

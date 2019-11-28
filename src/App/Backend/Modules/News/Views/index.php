@@ -33,15 +33,15 @@
 
         <div class="row">
             <div class="col-lg-12 mx-auto my-4">
-                <table id="usetTable" class="table table-striped dt_responsive">
+                <table id="usetTable" class="table table-striped dt_responsive" style="width: 100%">
                     <thead class="thead">
                         <tr>
-                            <th>Auteur</th>
-                            <th>Titre</th>
-                            <th>Chapô</th>
+                            <th data-priority="2">Auteur</th>
+                            <th data-priority="1">Titre</th>
+                            <th >Chapô</th>
                             <th>Date ajout</th>
                             <th>Dernière modification </th>
-                            <th>Action</th>
+                            <th data-priority="1">Action</th>
                         </tr>
                     </thead>
                     <tbody>

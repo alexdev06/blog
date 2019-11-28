@@ -24,9 +24,15 @@
         
         <h2 class="text-center my-5">Liste des commentaires</h2>
 
-        <table id="usetTable" class="table table-striped dt_responsive">
+        <table id="usetTable" class="table table-striped dt_responsive" style="width: 100%">
             <thead class="thead">
-                <tr><th>Auteur</th><th>News</th><th>Contenu</th><th>Date d'ajout</th><th>Status</th><th>Action</th></tr>
+                <tr>
+                    <th>Auteur</th>
+                    <th data-priority="1"> Contenu</th>
+                    <th>Date d'ajout</th>
+                    <th>Status</th>
+                    <th data-priority="1">Action</th>
+                </tr>
             </thead>
             <tbody>
                 <?php
@@ -40,7 +46,6 @@
                     }
                     echo '<tr>
                             <td>', htmlspecialchars($comment['author']), '</td>
-                            <td><a href="/admin-news-', $comment['news_id'], '">', $comment['news_id'],'</a></td>
                             <td>', nl2br(htmlspecialchars($comment['content'])), '</td>
                             <td>le ', $comment['date_create']->format('d/m/Y à H\hi'), '</td>
                             <td>' . $comment['published'] . '</td>

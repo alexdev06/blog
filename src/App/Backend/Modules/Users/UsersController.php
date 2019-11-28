@@ -7,7 +7,7 @@ use \ADABlog\Fram\HTTPRequest;
 
 class UsersController extends BackController
 {
-    public function executeIndex(HTTPRequest $request)
+    public function executeIndex()
     {
         if ($this->app->visitor()->isAdministrator() == true) {
             $this->page->addVar('title', 'Gestion des utilisateurs');
