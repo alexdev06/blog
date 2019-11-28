@@ -19,8 +19,10 @@ abstract class CommentsManager extends Manager
     {
         if ($comment->isValid()) {
             $comment->isNew() ? $this->add($comment) : $this->modify($comment);
-        } else {
-            throw new \RuntimeException('Le commentaire doit être validé pour être enregristré');
-        }
+            return;
+        } 
+        
+        throw new \RuntimeException('Le commentaire doit être validé pour être enregristré');
+    
     }
 }

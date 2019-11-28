@@ -128,7 +128,9 @@
 	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.js"></script>
 	<script>
         $(document).ready(function() {
-            $('#usetTable').DataTable();
+            $('#usetTable').DataTable({
+				responsive: true
+			});
         } );
     </script>
 </body>
