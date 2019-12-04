@@ -113,6 +113,9 @@
 	<!-- Custom scripts for this template -->
 	<script src="js/freelancer.min.js"></script>
 
+	<!-- reCAPTCHA -->
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 </body>
 
 </html>
