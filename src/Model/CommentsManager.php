@@ -8,8 +8,8 @@ abstract class CommentsManager extends Manager
 {
     abstract public function getId($id);
     abstract public function getList();
-    abstract public function getListOf($news_id);
-    abstract public function getListPublishedOf($news_id);
+    abstract public function getListOf($newsId);
+    abstract public function getListPublishedOf($newsId);
     abstract public function getListUnpublished();
     abstract public function add(Comment $comment);
     abstract public function modifyCommentStatus($id);
@@ -18,7 +18,7 @@ abstract class CommentsManager extends Manager
     public function save(Comment $comment)
     {
         if ($comment->isValid()) {
-            $comment->isNew() ? $this->add($comment) : $this->modify($comment);
+            $this->add($comment);
             return;
         } 
         

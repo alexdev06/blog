@@ -23,11 +23,11 @@ class ConnectionController extends BackController
                 $this->app->visitor()->setFlash('Pseudo incorrect');
             } else {
                 if (password_verify($password, $user->password())){
-                    if ($user->administrator_status() == true) {
+                    if ($user->administratorStatus() == true) {
                         $this->app->visitor()->setAuthenticated(true);
                         $this->app->visitor()->setAdministrator(true);
                         $this->app->httpResponse()->redirect('/admin');
-                    } elseif ($user->member_status() == 1 && $user->administrator_status() == 0) {
+                    } elseif ($user->memberStatus() == 1 && $user->administratorStatus() == 0) {
                         $this->app->visitor()->setAuthenticated(true);
                         $this->app->httpResponse()->redirect('/admin');
                     } else {

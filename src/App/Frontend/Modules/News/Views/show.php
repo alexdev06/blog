@@ -22,16 +22,16 @@
 
         <div class="row">
             <div class="col-lg-10 mx-auto my-4">
-                <p class="intro-news">Par <em><?= $news['author'] ?></em>, le <?= $news['date_create']->format('d/m/Y à H\hi') ?></p>
+                <p class="intro-news">Par <em><?= $news['author'] ?></em>, le <?= $news['dateUpdate']->format('d/m/Y à H\hi') ?></p>
 
                 <p class="lead justify"><?= htmlspecialchars($news['lead']) ?></p>
 
                 <p class="justify"><?= nl2br(htmlspecialchars($news['content'])) ?></p>
 
-                <?php if ($news['date_create'] != $news['date_update']) { ?>
+                <?php if ($news['dateCreate'] != $news['dateUpdate']) { ?>
                 <p style="text-align: right;">
                     <small>
-                        <em>Modifiée le <?= $news['date_update']->format('d/m/Y à H\hi') ?></em>
+                        <em>Modifiée le <?= $news['dateUpdate']->format('d/m/Y à H\hi') ?></em>
                     </small>
                 </p>
                 <?php } ?>
@@ -48,7 +48,7 @@
                 ?>
                 <fieldset>
                     <legend class="legend-comm">
-                    Posté par <strong><?= htmlspecialchars($comment['author']) ?> </strong> le <?= $comment['date_create']->format('d/m/Y à H\hi') ?> :
+                    Posté par <strong><?= htmlspecialchars($comment['author']) ?> </strong> le <?= $comment['dateCreate']->format('d/m/Y à H\hi') ?> :
                     </legend>
                     <p><?= nl2br(htmlspecialchars($comment['content'])) ?></p>
                     <hr />

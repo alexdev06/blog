@@ -12,7 +12,8 @@ abstract class NewsManager extends Manager
     abstract public function count();
     abstract public function delete($id);
     abstract public function modify(News $news);
-
+    abstract public function add(News $news);
+    
     public function save(News $news)
     {
         if ($news->isValid()) {

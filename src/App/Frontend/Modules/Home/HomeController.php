@@ -18,7 +18,7 @@ class HomeController extends BackController
         if (null !== $request->postData('name')) {
          
             $name = strip_tags(htmlspecialchars($request->postData('name')));
-            $lastName = strip_tags(htmlspecialchars($request->postData('last_name')));
+            $lastName = strip_tags(htmlspecialchars($request->postData('lastName')));
             $email_address = strip_tags(htmlspecialchars($request->postData('email')));
             $message = strip_tags(htmlspecialchars($request->postData('message')));
                 

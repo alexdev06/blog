@@ -11,10 +11,10 @@ class UsersManagerPDO extends UsersManager
         $request = $this->dao->prepare($sql);
 
         $request->bindValue(':name' , $user->name());
-        $request->bindValue(':last_name', $user->last_name());
-        $request->bindValue('username', $user->username());
-        $request->bindValue('email', $user->email());
-        $request->bindValue('password', $user->password());
+        $request->bindValue(':last_name', $user->lastName());
+        $request->bindValue(':username', $user->username());
+        $request->bindValue(':email', $user->email());
+        $request->bindValue(':password', $user->password());
         $request->execute();
 
         $user->setId($this->dao->lastInsertId());
@@ -22,7 +22,7 @@ class UsersManagerPDO extends UsersManager
 
     public function get($login)
     {
-        $sql = 'SELECT username, password, date_registration, member_status, administrator_status FROM user WHERE username = :username';
+        $sql = 'SELECT username, password, date_registration AS dateRegistration, member_status AS memberStatus, administrator_status AS administratorStatus FROM user WHERE username = :username';
         $request = $this->dao->prepare($sql);
 
         $request->bindValue(':username',$login);
@@ -36,7 +36,7 @@ class UsersManagerPDO extends UsersManager
 
     public function getId($id)
     {
-        $sql = 'SELECT id, name, last_name, username, date_registration, member_status, administrator_status FROM user WHERE id = :id';
+        $sql = 'SELECT id, name, last_name AS lastName, username, date_registration AS dateRegistration, member_status AS memberStatus, administrator_status AS administratorStatus FROM user WHERE id = :id';
         $request = $this->dao->prepare($sql);
 
         $request->bindValue(':id',$id);
@@ -50,7 +50,7 @@ class UsersManagerPDO extends UsersManager
 
     public function getList()
     {
-        $sql = 'SELECT id, name, last_name, username, email, date_registration, member_status, administrator_status FROM user';
+        $sql = 'SELECT id, name, last_name AS lastName, username, email, date_registration AS dateRegistration, member_status AS memberStatus, administrator_status AS administratorStatus FROM user';
         $request = $this->dao->query($sql);
 
         $request->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'ADABlog\Entity\User');
@@ -58,7 +58,7 @@ class UsersManagerPDO extends UsersManager
         $listUsers = $request->fetchAll();
 
         foreach ($listUsers as $Users) {
-            $Users->setDate_registration(new \DateTime($Users->date_registration()));
+            $Users->setDateRegistration(new \DateTime($Users->dateRegistration()));
         }
 
         $request->closeCursor();
@@ -74,7 +74,7 @@ class UsersManagerPDO extends UsersManager
         $request = $this->dao->prepare($sql);
 
         $request->bindValue(':id', $user->id());
-        if ($user->member_status() == 0) {
+        if ($user->memberStatus() == 0) {
             $request->bindValue(':member_status', 1);
         } else {
             $request->bindValue(':member_status', 0);

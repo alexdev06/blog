@@ -35,7 +35,7 @@
                 ?>
 
                 <h3><a href="news-<?= $news['id'] ?>"><?= htmlspecialchars($news['title']) ?></a></h3>
-                <p style="text-align: left;"><small><em>Modifiée le <?= $news['date_update']->format('d/m/Y à H\hi') ?></em></small></p>
+                <p style="text-align: left;"><small><em>Modifiée le <?= $news['dateUpdate']->format('d/m/Y à H\hi') ?></em></small></p>
 
                 <p class="lead"><?= htmlspecialchars($news['lead']) ?></p>
                 
