@@ -9,8 +9,8 @@ class News extends Entity
     protected $title;
     protected $lead;
     protected $content;
-    protected $date_create;
-    protected $date_update;
+    protected $dateCreate;
+    protected $dateUpdate;
 
     const AUTEUR_INVALIDE = 1;
     const TITRE_INVALIDE = 2;
@@ -47,7 +47,7 @@ class News extends Entity
     public function setLead($lead)
     {   
         if (!is_string($lead) || empty($lead)) {
-            $this->erreurs[] = self::LEAD_INVALID;
+            $this->erreurs[] = self::LEAD_INVALIDE;
         }
 
         $this->lead = $lead;
@@ -62,14 +62,14 @@ class News extends Entity
         $this->content = $content;
     }
 
-    public function setDate_create(\DateTime $dateCreate)
+    public function setDateCreate(\DateTime $dateCreate)
     {
-        $this->date_create = $dateCreate;
+        $this->dateCreate = $dateCreate;
     }
 
-    public function setDate_update(\DateTime $dateUpdate)
+    public function setDateUpdate(\DateTime $dateUpdate)
     {
-        $this->date_update = $dateUpdate;
+        $this->dateUpdate = $dateUpdate;
     }
 
 
@@ -95,13 +95,13 @@ class News extends Entity
         return $this->content;
     }
 
-    public function date_create()
+    public function dateCreate()
     {
-        return $this->date_create;
+        return $this->dateCreate;
     }
 
-    public function date_update()
+    public function dateUpdate()
     {
-        return $this->date_update;
+        return $this->dateUpdate;
     }
 }

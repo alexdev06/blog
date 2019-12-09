@@ -16,6 +16,7 @@ class HomeController extends BackController
 
         // Check for empty fields
         if (null !== $request->postData('name')) {
+
                         // reCAPTCHA
             $secret = "6LehGMAUAAAAAGT7FXQAvNN5APjP9d6mh7Qlp_rM";
             $response = $_POST['g-recaptcha-response'];
@@ -30,7 +31,7 @@ class HomeController extends BackController
         
             if ($decode['success'] == true) {
                 $name = strip_tags(htmlspecialchars($request->postData('name')));
-                $lastName = strip_tags(htmlspecialchars($request->postData('last_name')));
+                $lastName = strip_tags(htmlspecialchars($request->postData('lastName')));
                 $email_address = strip_tags(htmlspecialchars($request->postData('email')));
                 $message = strip_tags(htmlspecialchars($request->postData('message')));
                     

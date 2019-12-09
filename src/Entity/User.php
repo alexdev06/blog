@@ -6,13 +6,13 @@ use \ADABlog\Fram\Entity;
 class User extends Entity
 {
     protected $name;
-    protected $last_name;
+    protected $lastName;
     protected $username;
     protected $email;
     protected $password;
-    protected $date_registration;
-    protected $member_status;
-    protected $administrator_status;
+    protected $dateRegistration;
+    protected $memberStatus;
+    protected $administratorStatus;
 
     const PRENOM_INVALIDE = 1;
     const NOM_INVALIDE = 2;
@@ -22,7 +22,7 @@ class User extends Entity
 
     public function isValid()
     {
-        return !( empty($this->name)  || empty($this->last_name) || empty($this->username) || empty($this->email) || empty($this->password));
+        return !( empty($this->name)  || empty($this->lastName) || empty($this->username) || empty($this->email) || empty($this->password));
     }
 
     // SETTERS
@@ -35,12 +35,12 @@ class User extends Entity
         $this->name = $name;
     }
 
-    public function setLast_name($lastName)
+    public function setLastName($lastName)
     {
         if (!is_string($lastName) || empty($lastName)) {
             $this->erreurs[] = self::NOM_INVALIDE;
         }
-        $this->last_name = $lastName;
+        $this->lastName = $lastName;
     }
 
     public function setUsername($userName)
@@ -70,19 +70,19 @@ class User extends Entity
         $this->password = $password;
     }
 
-    public function setDate_registration(\DateTime $dateRegistration)
+    public function setDateRegistration(\DateTime $dateRegistration)
     {
-        $this->date_registration = $dateRegistration;
+        $this->dateRegistration = $dateRegistration;
     }
 
-    public function setMember_status($status)
+    public function setMemberStatus($status)
     {
-        $this->member_status = $status;
+        $this->memberStatus = $status;
     }
 
-    public function setAdministrator_Status($status)
+    public function setAdministratorStatus($status)
     {
-        $this->administrator_status = $status;
+        $this->administratorStatus = $status;
     }
 
 
@@ -93,9 +93,9 @@ class User extends Entity
         return $this->name;
     }
 
-    public function last_name()
+    public function lastName()
     {
-        return $this->last_name;
+        return $this->lastName;
     }
 
     public function username()
@@ -113,17 +113,17 @@ class User extends Entity
         return $this->password;
     }
 
-    public function date_registration()
+    public function dateRegistration()
     {
-        return $this->date_registration;
+        return $this->dateRegistration;
     }
 
-    public function member_status()
+    public function memberStatus()
     {
-        return $this->member_status;
+        return $this->memberStatus;
     }
-    public function administrator_status()
+    public function administratorStatus()
     {
-        return $this->administrator_status;
+        return $this->administratorStatus;
     }
 }

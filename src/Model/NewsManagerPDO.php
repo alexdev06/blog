@@ -7,7 +7,7 @@ class NewsManagerPDO extends NewsManager
 {
     public function getList($start = -1, $limit = -1)
     {
-        $sql = 'SELECT id, author, title, lead, content, date_create, date_update FROM news ORDER BY date_create DESC';
+        $sql = 'SELECT id, author, title, lead, content, date_create AS dateCreate, date_update AS dateUpdate FROM news ORDER BY date_create DESC';
 
         if ($start != -1 || $limit != -1) {
             $sql .= ' LIMIT '.(int) $limit.' OFFSET '.(int) $start;
@@ -19,8 +19,8 @@ class NewsManagerPDO extends NewsManager
         $listNews = $request->fetchAll();
 
         foreach ($listNews as $News) {
-            $News->setDate_create(new \DateTime($News->date_create()));
-            $News->setDate_update(new \DateTime($News->date_Update()));
+            $News->setDateCreate(new \DateTime($News->dateCreate()));
+            $News->setDateUpdate(new \DateTime($News->dateUpdate()));
         }
 
         $request->closeCursor();
@@ -32,7 +32,7 @@ class NewsManagerPDO extends NewsManager
     {
         $limite = 5;
         $debut = ($page - 1) * $limite;
-        $sql = 'SELECT id , author, title, lead, content, date_create, date_update FROM news ORDER BY date_create DESC LIMIT :limit OFFSET :debut';
+        $sql = 'SELECT id , author, title, lead, content, date_create AS dateCreate, date_update AS dateUpdate FROM news ORDER BY date_create DESC LIMIT :limit OFFSET :debut';
         $requete = $this->dao->prepare($sql);
         
         $requete->bindValue(':limit', $limite, \PDO::PARAM_INT);
@@ -44,8 +44,8 @@ class NewsManagerPDO extends NewsManager
         $listeNews = $requete->fetchAll();
 
         foreach ($listeNews as $News) {
-            $News->setDate_create(new \DateTime($News->date_create()));
-            $News->setDate_update(new \DateTime($News->date_Update()));
+            $News->setDateCreate(new \DateTime($News->dateCreate()));
+            $News->setDateUpdate(new \DateTime($News->dateUpdate()));
         }
 
         $requete->closeCursor();
@@ -56,7 +56,7 @@ class NewsManagerPDO extends NewsManager
 
     public function getUnique($id)
     {
-        $sql = 'SELECT id, author, title, lead, content, date_create, date_update FROM news WHERE id = :id';
+        $sql = 'SELECT id, author, title, lead, content, date_create AS dateCreate, date_update AS dateUpdate FROM news WHERE id = :id';
         $request = $this->dao->prepare($sql);
 
         $request->bindValue(':id', $id);
@@ -65,8 +65,8 @@ class NewsManagerPDO extends NewsManager
         $request->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'ADABlog\Entity\News');
 
         if ($news = $request->fetch()) {
-            $news->setDate_create(new \DateTime($news->date_create()));
-            $news->setDate_update(new \DateTime($news->date_update()));
+            $news->setDateCreate(new \DateTime($news->dateCreate()));
+            $news->setDateUpdate(new \DateTime($news->dateUpdate()));
 
             return $news;
         }
@@ -79,7 +79,7 @@ class NewsManagerPDO extends NewsManager
         return $this->dao->query('SELECT COUNT(*) FROM news')->fetchColumn();
     }
 
-    protected function add(News $news)
+    public function add(News $news)
     {
         $sql = 'INSERT INTO news SET author = :author, title = :title, lead=:lead, content = :content, date_create = NOW(), date_update = NOW()';
         $request = $this->dao->prepare($sql);

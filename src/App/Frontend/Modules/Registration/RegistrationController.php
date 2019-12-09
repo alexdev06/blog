@@ -13,6 +13,7 @@ class RegistrationController extends BackController
         $this->page->addVar('visitor', $this->app->visitor());
 
         if ($request->postExists('login')) {
+
             // reCAPTCHA
             $secret = "6LehGMAUAAAAAGT7FXQAvNN5APjP9d6mh7Qlp_rM";
             $response = $_POST['g-recaptcha-response'];
@@ -35,7 +36,7 @@ class RegistrationController extends BackController
                     
                     $user = new User([
                         'name' => $request->postData('name'),
-                        'last_name' => $request->postData('lastName'),
+                        'lastName' => $request->postData('lastName'),
                         'username' => $request->postData('login'),
                         'email' => $request->postData('email'),
                         'password' => $pass,

@@ -7,9 +7,9 @@ class Comment extends Entity
 {
     protected $author;
     protected $content;
-    protected $date_create;
+    protected $dateCreate;
     protected $published;
-    protected $news_id;
+    protected $newsId;
 
     const AUTEUR_INVALIDE = 1;
     const CONTENU_INVALIDE = 2;
@@ -41,18 +41,18 @@ class Comment extends Entity
         $this->content = $content;
     }
 
-    public function setDate_create(\DateTime $dateCreate)
+    public function setDateCreate(\DateTime $dateCreate)
     {
-        $this->date_create = $dateCreate;
+        $this->dateCreate = $dateCreate;
     }
 
-    public function setNews_id($news_id)
+    public function setNewsId($newsId)
     {
-        if (!is_integer($news_id) || empty($news_id)) {
+        if (!is_integer($newsId) || empty($newsId)) {
             $this->erreurs[] = self::REFERENCE_INVALIDE;
         }
 
-        $this->news_id = $news_id;
+        $this->newsId = $newsId;
     }
 
     public function setPublished($published)
@@ -72,9 +72,9 @@ class Comment extends Entity
         return $this->content;
     }
 
-    public function date_create()
+    public function dateCreate()
     {
-        return $this->date_create;
+        return $this->dateCreate;
     }
 
     public function published()
@@ -82,9 +82,9 @@ class Comment extends Entity
         return $this->published;
     }
 
-    public function news_id()
+    public function newsId()
     {
-        return $this->news_id;
+        return $this->newsId;
     }
 
 }

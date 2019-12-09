@@ -39,18 +39,18 @@
                         <?php
                         foreach ($listUsers as $user)
                         {
-                            if ($user['member_status'] == 1) {
-                                $user['member_status'] = 'validé';
+                            if ($user['memberStatus'] == 1) {
+                                $user['memberStatus'] = 'validé';
                             } else {
-                                $user['member_status'] = 'en attente';
+                                $user['memberStatus'] = 'en attente';
                             }
                             echo '<tr>
                                 <td>', htmlspecialchars($user['name']), '</td>
-                                <td>', htmlspecialchars($user['last_name']), '</td>
+                                <td>', htmlspecialchars($user['lastName']), '</td>
                                 <td>', htmlspecialchars($user['username']),'</td>
                                 <td>', htmlspecialchars($user['email']),'</td>
-                                <td>', $user['date_registration']->format('d/m/Y à H\hi'),'</td>
-                                <td>', $user['member_status'],'</td>
+                                <td>', $user['dateRegistration']->format('d/m/Y à H\hi'),'</td>
+                                <td>', $user['memberStatus'],'</td>
                                 <td><a onclick="return confirm(\'Valider la suppression ?\');" href="admin-users-delete-',$user['id'],'">Supprimer</a><br /><a href="admin-users-update-',$user['id'],'">Modifier</a></td>
                             </tr>', "\n";
                         }

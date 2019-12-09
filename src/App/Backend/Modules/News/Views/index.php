@@ -52,8 +52,8 @@
                             <td>', htmlspecialchars($news['author']), '</td>
                             <td>', htmlspecialchars($news['title']), '</td>
                             <td>', htmlspecialchars($news['lead']), '</td>
-                            <td>', $news['date_create']->format('d/m/Y à H\hi'), '</td>
-                            <td>', ($news['date_create'] == $news['date_uptdate'] ? '-' : $news['date_update']->format('d/m/Y à H\hi')), '</td>
+                            <td>', $news['dateCreate']->format('d/m/Y à H\hi'), '</td>
+                            <td>', ($news['dateCreate'] == $news['dateUptdate'] ? '-' : $news['dateUpdate']->format('d/m/Y à H\hi')), '</td>
                             <td><a href="admin-news-update-', $news['id'], '">Modifier</a><br /> <a onclick="return confirm(\'Valider la suppression ?\');" href="admin-news-delete-', $news['id'], '">Supprimer</a><br /> <a href="admin-news-', $news['id'], '">Afficher</a></td>
                         </tr>', "\n";
                         }
