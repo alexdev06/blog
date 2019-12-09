@@ -45,7 +45,7 @@ class CommentsManagerPDO extends CommentsManager
 
     public function getList()
     {
-        $sql = 'SELECT id, news_id, author, content, date_create, published FROM comment';
+        $sql = 'SELECT id, news_id AS newsId, author, content, date_create AS dateCreate, published FROM comment';
         $request = $this->dao->query($sql);
       
         $request->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'ADABlog\Entity\Comment');
@@ -91,7 +91,7 @@ class CommentsManagerPDO extends CommentsManager
     
     public function getId($id)
     {
-        $sql = 'SELECT id, news_id, author, content, published FROM comment WHERE id = :id';
+        $sql = 'SELECT id, news_id AS newsId, author, content, published FROM comment WHERE id = :id';
         $request = $this->dao->prepare($sql);
        
         $request->bindValue(':id', $id);

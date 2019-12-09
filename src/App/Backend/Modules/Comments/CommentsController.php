@@ -19,10 +19,10 @@ class CommentsController extends BackController
         $this->managers->getManagerOf('Comments')->delete($request->getData('id'));
         $this->app->visitor()->setFlash('Le commentaire a bien été supprimé !');
 
-        if (!$request->getExists('news_id')) {
+        if (!$request->getExists('newsId')) {
             $this->app->httpResponse()->redirect('/admin-comments');
         } else {
-            $this->app->httpResponse()->redirect('/admin-news'.$request->getData('news_id'));
+            $this->app->httpResponse()->redirect('/admin-news'.$request->getData('newsId'));
         }
     }
 
@@ -31,10 +31,10 @@ class CommentsController extends BackController
         $this->managers->getManagerOf('Comments')->modifyCommentStatus($request->getData('id'));
         $this->app->visitor()->setFlash('Le commentaire a bien été modifié !');
     
-        if (!$request->getExists('news_id')) {
+        if (!$request->getExists('newsId')) {
             $this->app->httpResponse()->redirect('/admin-comments');
         } else {
-            $this->app->httpResponse()->redirect('/admin-news'.$request->getData('news_id'));
+            $this->app->httpResponse()->redirect('/admin-news'.$request->getData('newsId'));
         }
     }
 
