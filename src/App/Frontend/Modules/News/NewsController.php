@@ -55,22 +55,36 @@ class NewsController extends BackController
     {
         $this->page->addVar('title', 'Ajout d\'un commentaire');
         if ($request->postExists('pseudo')) {
-            $comment = new Comment([
-                'news_id' => $request->getData('news'),
-                'author' => $request->postData('pseudo'),
-                'content' => $request->postData('message')
-            ]);
-           
-            if ($comment->isValid()) {
-                $this->managers->getManagerOf('Comments')->save($comment);
-                $this->app->visitor()->setFlash('Le commentaire a été envoyé.');
-                $this->app->httpResponse()->redirect('news-'.$request->getData('news'));
-                
-            } else {
-                $this->page->addVar('erreurs', $comment->erreurs());
-            }
-            $this->page->addVar('comment', $comment);
+            // reCAPTCHA
+            $secret = "6LehGMAUAAAAAGT7FXQAvNN5APjP9d6mh7Qlp_rM";
+            $response = $_POST['g-recaptcha-response'];
+            $remoteip = $_SERVER['REMOTE_ADDR'];
             
+            $api_url = "https://www.google.com/recaptcha/api/siteverify?secret=" 
+                . $secret
+                . "&response=" . $response
+                . "&remoteip=" . $remoteip ;
+            
+            $decode = json_decode(file_get_contents($api_url), true);
+        
+            if ($decode['success'] == true) {
+                $comment = new Comment([
+                    'news_id' => $request->getData('news'),
+                    'author' => $request->postData('pseudo'),
+                    'content' => $request->postData('message')
+                ]);
+            
+                if ($comment->isValid()) {
+                    $this->managers->getManagerOf('Comments')->save($comment);
+                    $this->app->visitor()->setFlash('Le commentaire a été envoyé.');
+                    $this->app->httpResponse()->redirect('news-'.$request->getData('news'));
+                    
+                } else {
+                    $this->page->addVar('erreurs', $comment->erreurs());
+                }
+                $this->page->addVar('comment', $comment);
+                
+            }
         }
     }
 }

@@ -59,7 +59,7 @@
             </div>
         </div>
         <div class="row">
-            <h4 class="col-lg-12 text-center"><a href="../fichiers/cv_alexandre_manteaux">Télécharger mon CV</a></h4>
+            <h4 class="col-lg-12 text-center"><a href="../files/cv_alexandre_manteaux">Télécharger mon CV</a></h4>
         </div>
     </div>
 </section>
@@ -120,7 +120,13 @@
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>
-                <br>
+                <br />
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                        <div class="g-recaptcha" data-sitekey="6LehGMAUAAAAAAu-G1BzjkHTyWssiMYxtuL--4bm"></div>
+                    </div>
+                </div>
+                <br />
                 <div id="success"></div>
                 <div class="row">
                     <div class="form-groupc col-6">
