@@ -49,7 +49,7 @@
                                 <td>', htmlspecialchars($user['lastName']), '</td>
                                 <td>', htmlspecialchars($user['username']),'</td>
                                 <td>', htmlspecialchars($user['email']),'</td>
-                                <td>', $user['dateRegistration']->format('d/m/Y à H\hi'),'</td>
+                                <td>', $user['dateRegistration']->format('d/m/Y H\hi'),'</td>
                                 <td>', $user['memberStatus'],'</td>
                                 <td><a onclick="return confirm(\'Valider la suppression ?\');" href="admin-users-delete-',$user['id'],'">Supprimer</a><br /><a href="admin-users-update-',$user['id'],'">Modifier</a></td>
                             </tr>', "\n";

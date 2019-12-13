@@ -47,7 +47,7 @@
                     echo '<tr>
                             <td>', htmlspecialchars($comment['author']), '</td>
                             <td>', nl2br(htmlspecialchars($comment['content'])), '</td>
-                            <td>le ', $comment['dateCreate']->format('d/m/Y à H\hi'), '</td>
+                            <td>le ', $comment['dateCreate']->format('d/m/Y H\hi'), '</td>
                             <td>' . $comment['published'] . '</td>
                             <td><a href="admin-comments-update-', $comment['id'], '-' ,$comment['newsId'], '">Modifier</a><br /> <a onclick="return confirm(\'Valider votre choix?\');" href="admin-comments-delete-', $comment['id'], '-',$comment['newsId'], '">Supprimer</a></td>
                     </tr>', "\n";

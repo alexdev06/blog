@@ -9,8 +9,8 @@
     <route url="/admin-news-insert" module="News" action="insert" ></route>
     <route url="/admin-news-update-([0-9]+)" module="News" action="update" vars="id"></route>
     <route url="/admin-comments" module="Comments" action="index"></route>
-    <route url="/admin-comments-delete-([0-9]+)(-[0-9]+)*" module="Comments" action="delete" vars="id,news_id"></route>
-    <route url="/admin-comments-update-([0-9]+)(-[0-9]+)*" module="Comments" action="update" vars="id,news_id"></route>
+    <route url="/admin-comments-delete-([0-9]+)(-[0-9]+)*" module="Comments" action="delete" vars="id,newsId"></route>
+    <route url="/admin-comments-update-([0-9]+)(-[0-9]+)*" module="Comments" action="update" vars="id,newsId"></route>
     <route url="/admin-users" module="Users" action="index"></route>
     <route url="/admin-users-delete-([0-9]+)" module="Users" action="delete" vars="id"></route>
     <route url="/admin-users-update-([0-9]+)" module="Users" action="update" vars="id"></route>
