@@ -49,6 +49,18 @@ class NewsController extends BackController
         $this->page->addVar('title', 'Ajout d\'une news');
     }
 
+    public function executeUpdate(HTTPRequest $request)
+    {
+        if ($request->postExists('author')) {
+            $this->processForm($request);
+        } else {
+            $this->page->addVar('news', $this->managers->getManagerOf('News')->getUnique($request->getData('id')));
+        }
+
+        $this->page->addVar('title', 'Modification d\'une news');
+        
+    }
+
     public function processForm(HTTPRequest $request)
     {
         $news = new News([
@@ -65,7 +77,7 @@ class NewsController extends BackController
  
         if ($news->isValid()) {
             $this->managers->getManagerOf('News')->save($news);
-            $this->app->visitor()->setFlash($news->isNew() ? 'La news a bien été ajoutée !' : 'La news a bien été modifiée!');
+            $this->app->visitor()->setFlash($news->isNew() ? 'La news a bien été ajoutée !' : 'La news a bien été modifiée !');
             $this->app->httpResponse()->redirect('admin-news');
         } else {
             $this->page->addVar('erreurs', $news->erreurs());
@@ -73,16 +85,4 @@ class NewsController extends BackController
 
         $this->page->addVar('news', $news);
     }
-
-    public function executeUpdate(HTTPRequest $request)
-    {
-        if ($request->postExists('author')) {
-            $this->processForm($request);
-        } else {
-            $this->page->addVar('news', $this->managers->getManagerOf('News')->getUnique($request->getData('id')));
-        }
-
-        $this->page->addVar('title', 'Modification d\'une news');
-    }
-
 }

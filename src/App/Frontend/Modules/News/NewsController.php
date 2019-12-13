@@ -69,7 +69,7 @@ class NewsController extends BackController
         
             if ($decode['success'] == true) {
                 $comment = new Comment([
-                    'news_id' => $request->getData('news'),
+                    'newsId' => $request->getData('news'),
                     'author' => $request->postData('pseudo'),
                     'content' => $request->postData('message')
                 ]);

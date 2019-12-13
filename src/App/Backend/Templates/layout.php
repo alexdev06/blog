@@ -126,8 +126,12 @@
 	<!-- DataTables JQuery -->
 	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/plug-ins/1.10.20/sorting/datetime-moment.js"></script>
+
 	<script>
         $(document).ready(function() {
+			$.fn.dataTable.moment( 'DD/MM/YYYY HH[h]mm' );
             $('#usetTable').DataTable({
 				responsive: true
 			});

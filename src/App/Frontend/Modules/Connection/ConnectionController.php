@@ -33,25 +33,25 @@ class ConnectionController extends BackController
                 $manager = $this->managers->getManagerOf('Users');
                 $user = $manager->get($login);
 
-               if (!isset($user) || empty($user)) {
+                if (!isset($user) || empty($user)) {
                   $this->app->visitor()->setFlash('Pseudo incorrect');
-              } else {
-                  if (password_verify($password, $user->password())){
-                      if ($user->administratorStatus() == true) {
-                          $this->app->visitor()->setAuthenticated(true);
-                          $this->app->visitor()->setAdministrator(true);
-                          $this->app->httpResponse()->redirect('/admin');
-                      } elseif ($user->memberStatus() == 1 && $user->administratorStatus() == 0) {
-                          $this->app->visitor()->setAuthenticated(true);
-                          $this->app->httpResponse()->redirect('/admin');
-                          } else {
-                              $this->app->visitor()->setFlash('Votre compte n\'a pas encore été validé');
-                              $this->app->httpResponse()->redirect('/');
-                          }
+                } else {
+                    if (password_verify($password, $user->password())) {
+                        if ($user->administratorStatus() == true) {
+                            $this->app->visitor()->setAuthenticated(true);
+                            $this->app->visitor()->setAdministrator(true);
+                            $this->app->httpResponse()->redirect('/admin');
+                        } elseif ($user->memberStatus() == 1 && $user->administratorStatus() == 0) {
+                            $this->app->visitor()->setAuthenticated(true);
+                            $this->app->httpResponse()->redirect('/admin');
+                        } else {
+                            $this->app->visitor()->setFlash('Votre compte n\'a pas encore été validé');
+                            $this->app->httpResponse()->redirect('/');
+                        }
                     } else {
                         $this->app->visitor()->setFlash('Mot de passe incorrect');
                         $this->app->httpResponse()->redirect('/connection');
-                  }
+                    }
                 }
             }
         }

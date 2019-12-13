@@ -28,7 +28,7 @@
                             <th data-priority="2">Auteur</th>
                             <th>News</th>
                             <th data-priority="1">Contenu</th>
-                            <th>Date d'ajout</th>
+                            <th class="sort-date">Date d'ajout</th>
                             <th data-priority="1">Status</th>
                             <th data-priority="1">Action</th>
                         </tr>
@@ -46,7 +46,7 @@
                                 <td>', htmlspecialchars($comment['author']), '</td>
                                 <td><a href="/admin-news-', $comment['newsId'], '">', $comment['newsId'],'</a></td>
                                 <td>', nl2br(htmlspecialchars($comment['content'])), '</td>
-                                <td>', $comment['dateCreate']->format('d/m/Y à H\hi'), '</td>
+                                <td>', $comment['dateCreate']->format('d/m/Y H\hi'), '</td>
                                 <td>' . $comment['published'] . '</td>
                                 <td><a href="admin-comments-update-', $comment['id'], '">Modifier</a><br /> <a onclick="return confirm(\'Confirmer la suppression ?\');" href="admin-comments-delete-', $comment['id'], '">Supprimer</a><br /> <a href="admin-news-', $comment['newsId'], '">News</a></td>
                             </tr>', "\n";
