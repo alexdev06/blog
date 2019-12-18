@@ -95,14 +95,14 @@
                 <div class="control-group">
                     <div class="form-group floating-label-form-group controls mb-0 pb-2">
                         <label>Prénom</label>
-                        <input type="text" name="name" class="form-control" placeholder="Prénom" id="name" required data-validation-required-message="Veuillez entrer votre nom.">
+                        <input type="text" pattern=".{2,}" title="le prénom doit faire au moins 2 caractères" name="name" class="form-control" placeholder="Prénom" id="name" required data-validation-required-message="Veuillez entrer votre nom.">
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>
                 <div class="control-group">
                     <div class="form-group floating-label-form-group controls mb-0 pb-2">
                         <label>Nom</label>
-                        <input type="text" name="lastName" class="form-control" placeholder="Nom" id="lastName" required data-validation-required-message="Veuillez entrer votre prénom.">
+                        <input type="text" pattern=".{2,}" title="le nom doit faire au moins 2 caractères" name="lastName" class="form-control" placeholder="Nom" id="lastName" required data-validation-required-message="Veuillez entrer votre prénom.">
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>
