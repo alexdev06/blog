@@ -4,6 +4,7 @@ namespace ADABlog\App\Backend\Modules\News;
 use \ADABlog\Fram\BackController;
 use \ADABlog\Fram\HTTPRequest;
 use \ADABlog\Entity\News;
+use ADABlog\Fram\Visitor;
 
 class NewsController extends BackController
 {
@@ -63,11 +64,13 @@ class NewsController extends BackController
 
     public function processForm(HTTPRequest $request)
     {
+        $login = $this->app->visitor()->getLogin();
         $news = new News([
             'author' => $request->postData('author'),
             'title' => $request->postData('title'),
             'lead' => $request->postData('lead'),
-            'content' => $request->postData('content')
+            'content' => $request->postData('content'),
+            'userUsername' => $login
         ]);
 
 

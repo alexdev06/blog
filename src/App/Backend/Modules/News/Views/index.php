@@ -37,6 +37,7 @@
                     <thead class="thead">
                         <tr>
                             <th data-priority="2">Auteur</th>
+                            <th>Posté par</th>
                             <th data-priority="1">Titre</th>
                             <th >Chapô</th>
                             <th>Date ajout</th>
@@ -50,6 +51,7 @@
                         {
                         echo '<tr">
                             <td>', htmlspecialchars($news['author']), '</td>
+                            <td>', htmlspecialchars($news['userUsername']), '</td>
                             <td>', htmlspecialchars($news['title']), '</td>
                             <td>', htmlspecialchars($news['lead']), '</td>
                             <td>', $news['dateCreate']->format('d/m/Y H\hi'), '</td>

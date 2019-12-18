@@ -11,6 +11,7 @@ class News extends Entity
     protected $content;
     protected $dateCreate;
     protected $dateUpdate;
+    protected $userUsername;
 
     const AUTEUR_INVALIDE = 1;
     const TITRE_INVALIDE = 2;
@@ -72,6 +73,11 @@ class News extends Entity
         $this->dateUpdate = $dateUpdate;
     }
 
+    public function setUserUsername($userUsername)
+    {
+        $this->userUsername = $userUsername;
+    }
+
 
     // GETTER //
 
@@ -103,5 +109,10 @@ class News extends Entity
     public function dateUpdate()
     {
         return $this->dateUpdate;
+    }
+
+    public function userUsername()
+    {
+        return $this->userUsername;
     }
 }

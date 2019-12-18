@@ -7,7 +7,7 @@ class NewsManagerPDO extends NewsManager
 {
     public function getList($start = -1, $limit = -1)
     {
-        $sql = 'SELECT id, author, title, lead, content, date_create AS dateCreate, date_update AS dateUpdate FROM news ORDER BY date_create DESC';
+        $sql = 'SELECT id, author, title, lead, content, date_create AS dateCreate, date_update AS dateUpdate, user_username AS userUsername FROM news ORDER BY date_create DESC';
 
         if ($start != -1 || $limit != -1) {
             $sql .= ' LIMIT '.(int) $limit.' OFFSET '.(int) $start;
@@ -32,7 +32,7 @@ class NewsManagerPDO extends NewsManager
     {
         $limite = 5;
         $debut = ($page - 1) * $limite;
-        $sql = 'SELECT id , author, title, lead, content, date_create AS dateCreate, date_update AS dateUpdate FROM news ORDER BY date_create DESC LIMIT :limit OFFSET :debut';
+        $sql = 'SELECT id , author, title, lead, content, date_create AS dateCreate, date_update AS dateUpdate, user_username AS userUsername FROM news ORDER BY date_create DESC LIMIT :limit OFFSET :debut';
         $requete = $this->dao->prepare($sql);
         
         $requete->bindValue(':limit', $limite, \PDO::PARAM_INT);
@@ -56,7 +56,7 @@ class NewsManagerPDO extends NewsManager
 
     public function getUnique($id)
     {
-        $sql = 'SELECT id, author, title, lead, content, date_create AS dateCreate, date_update AS dateUpdate FROM news WHERE id = :id';
+        $sql = 'SELECT id, author, title, lead, content, date_create AS dateCreate, date_update AS dateUpdate, user_username AS userUsername FROM news WHERE id = :id';
         $request = $this->dao->prepare($sql);
 
         $request->bindValue(':id', $id);
@@ -81,19 +81,21 @@ class NewsManagerPDO extends NewsManager
 
     public function add(News $news)
     {
-        $sql = 'INSERT INTO news SET author = :author, title = :title, lead=:lead, content = :content, date_create = NOW(), date_update = NOW()';
+        $sql = 'INSERT INTO news SET author = :author, title = :title, lead=:lead, content = :content, date_create = NOW(), date_update = NOW(), user_username = :user_username';
         $request = $this->dao->prepare($sql);
 
         $request->bindValue(':title', $news->title());
         $request->bindValue(':author', $news->author());
         $request->bindValue(':lead', $news->lead());
         $request->bindValue(':content', $news->content());
+        $request->bindValue(':user_username', $news->userUsername());
+
         $request->execute();
     }
 
     public function modify(News $news)
     {
-        $sql = 'UPDATE news SET author = :author, title = :title, lead = :lead, content = :content, date_update = NOW() WHERE id = :id';
+        $sql = 'UPDATE news SET author = :author, title = :title, lead = :lead, content = :content, date_update = NOW(), user_username = :user_username WHERE id = :id';
         $request = $this->dao->prepare($sql);
 
         $request->bindValue(':title' , $news->title());
@@ -101,6 +103,8 @@ class NewsManagerPDO extends NewsManager
         $request->bindValue(':content', $news->content());
         $request->bindValue(':lead', $news->lead());
         $request->bindValue(':id', $news->id(), \PDO::PARAM_INT);
+        $request->bindValue(':user_username', $news->userUsername());
+
         $request->execute();
     }
 

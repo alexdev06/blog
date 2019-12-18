@@ -14,6 +14,7 @@ class ConnectionController extends BackController
 
         if ($request->postExists('login')) {
             // reCAPTCHA
+            
             $secret = "6LehGMAUAAAAAGT7FXQAvNN5APjP9d6mh7Qlp_rM";
             $response = $_POST['g-recaptcha-response'];
             $remoteip = $_SERVER['REMOTE_ADDR'];
@@ -37,6 +38,7 @@ class ConnectionController extends BackController
                   $this->app->visitor()->setFlash('Pseudo incorrect');
                 } else {
                     if (password_verify($password, $user->password())) {
+                        $this->app->visitor()->setLogin($user->username());
                         if ($user->administratorStatus() == true) {
                             $this->app->visitor()->setAuthenticated(true);
                             $this->app->visitor()->setAdministrator(true);

@@ -6,6 +6,11 @@ session_start();
 
 class Visitor
 {
+    public function getLogin()
+    {
+        return isset($_SESSION['login']) ? $_SESSION['login'] : null;
+    }
+
     public function getAttribute($attr)
     {
         return isset($_SESSION[$attr]) ? $_SESSION[$attr] : null;
@@ -27,6 +32,11 @@ class Visitor
     public function isAuthenticated()
     {
         return isset($_SESSION['auth']) && $_SESSION['auth'] === true;
+    }
+
+    public function setLogin($login)
+    {
+        $_SESSION['login'] = $login;
     }
 
     public function setAttribute($attr, $value)
