@@ -8,9 +8,24 @@
     </div>
 
     <div class="container">
+
+    <?php
+    if ($visitor->hasFlash()) {
+        ?>
+        <div class="row">
+            <div class="col-lg-6 mx-auto my-4">
+                <p class="flash"> <?= $visitor->getFlash(); ?> </p>
+            </div>
+        </div>
+        <?php
+    }
+    ?>
         <div class="row">
             <div class="col-lg-12 mx-auto my-4">
-                <p>Par <em><?= htmlspecialchars($news['author']) ?></em>, le <?= $news['dateCreate']->format('d/m/Y à H\hi') ?></p>
+                <p>Par <em><?= htmlspecialchars($news['author']) ?></em>, le <?= $news['dateCreate']->format('d/m/Y à H\hi') ?>
+                <br />
+                Posté par : <em><?= htmlspecialchars($news['userUsername']) ?></em>
+                </p>
 
                 <p class="lead justify"><?= htmlspecialchars($news['lead']) ?></p>
 
