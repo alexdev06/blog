@@ -12,6 +12,10 @@
     .news-show {
         margin-top: 60px;
     }
+
+    .news-title {
+        font-size: 1.8em;
+    }
 }
 
 .flash {
@@ -42,4 +46,22 @@ em {
 
 .legend-comm, .intro-news {
     font-size: 1.1em;
+}
+
+.lead {
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+.news-content {
+    font-size: 1.2em;
+}
+
+.add-comment-link {
+    font-size: 1.5em;
+}
+
+.no-comment {
+    font-size: 1.5em;
+    font-style: italic;
 }

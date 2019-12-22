@@ -49,14 +49,10 @@ class NewsController extends BackController
         $this->page->addVar('title', $news->title());
         $this->page->addVar('news', $news);
         $this->page->addVar('comments', $this->managers->getManagerOf('Comments')->getListPublishedOf($news->id()));
-    }
 
-    public function executeInsertComment(HTTPRequest $request)
-    {
-        $this->page->addVar('title', 'Ajout d\'un commentaire');
         if ($request->postExists('pseudo')) {
             // reCAPTCHA
-            $secret = "6LehGMAUAAAAAGT7FXQAvNN5APjP9d6mh7Qlp_rM";
+           /* $secret = "6LehGMAUAAAAAGT7FXQAvNN5APjP9d6mh7Qlp_rM";
             $response = $_POST['g-recaptcha-response'];
             $remoteip = $_SERVER['REMOTE_ADDR'];
             
@@ -67,9 +63,9 @@ class NewsController extends BackController
             
             $decode = json_decode(file_get_contents($api_url), true);
         
-            if ($decode['success'] == true) {
+            if ($decode['success'] == true) {*/
                 $comment = new Comment([
-                    'newsId' => $request->getData('news'),
+                    'newsId' => $request->getData('id'),
                     'author' => $request->postData('pseudo'),
                     'content' => $request->postData('message')
                 ]);
@@ -77,14 +73,16 @@ class NewsController extends BackController
                 if ($comment->isValid()) {
                     $this->managers->getManagerOf('Comments')->save($comment);
                     $this->app->visitor()->setFlash('Le commentaire a été envoyé.');
-                    $this->app->httpResponse()->redirect('news-'.$request->getData('news'));
+                    $this->app->httpResponse()->redirect('news-'.$request->getData('id'));
                     
                 } else {
                     $this->page->addVar('erreurs', $comment->erreurs());
                 }
                 $this->page->addVar('comment', $comment);
                 
-            }
+            //}
         }
+
     }
+
 }

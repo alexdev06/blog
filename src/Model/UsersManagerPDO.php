@@ -50,7 +50,7 @@ class UsersManagerPDO extends UsersManager
 
     public function getList()
     {
-        $sql = 'SELECT id, name, last_name AS lastName, username, email, date_registration AS dateRegistration, member_status AS memberStatus, administrator_status AS administratorStatus FROM user';
+        $sql = 'SELECT id, name, last_name AS lastName, username, email, date_registration AS dateRegistration, member_status AS memberStatus, administrator_status AS administratorStatus FROM user WHERE username != \'alexdev06\'';
         $request = $this->dao->query($sql);
 
         $request->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'ADABlog\Entity\User');
