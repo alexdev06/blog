@@ -35,12 +35,12 @@
                 ?>
 
                 <h3><a href="news-<?= $news['id'] ?>"><?= htmlspecialchars($news['title']) ?></a></h3>
-                <p style="text-align: left;"><small><em>Modifiée le <?= $news['dateUpdate']->format('d/m/Y à H\hi') ?></em></small></p>
+                <p style="text-align: left;" class="intro-news">Par <em><?= $news['author'] ?></em>, Modifiée le <?= $news['dateUpdate']->format('d/m/Y à H\hi') ?></p>
 
                 <p class="lead"><?= htmlspecialchars($news['lead']) ?></p>
                 
-                <p><?= nl2br(htmlspecialchars($news['content'])) ?> <a href="news-<?= $news['id'] ?>">lire la suite</a></p>
-                <hr />
+                <p class="news-content"><?= nl2br(htmlspecialchars($news['content'])) ?> <a href="news-<?= $news['id'] ?>">lire la suite</a></p>
+                <hr class="my-5" />
                 <?php
             }
             ?>

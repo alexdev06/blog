@@ -15,7 +15,7 @@ class ConnectionController extends BackController
         if ($request->postExists('login')) {
             // reCAPTCHA
             
-            $secret = "6LehGMAUAAAAAGT7FXQAvNN5APjP9d6mh7Qlp_rM";
+            /*$secret = "6LehGMAUAAAAAGT7FXQAvNN5APjP9d6mh7Qlp_rM";
             $response = $_POST['g-recaptcha-response'];
             $remoteip = $_SERVER['REMOTE_ADDR'];
             
@@ -26,7 +26,7 @@ class ConnectionController extends BackController
             
             $decode = json_decode(file_get_contents($api_url), true);
         
-            if ($decode['success'] == true) {
+            if ($decode['success'] == true) {*/
 
                 $login = $request->postData('login');
                 $password = $request->postData('password');
@@ -55,7 +55,7 @@ class ConnectionController extends BackController
                         $this->app->httpResponse()->redirect('/connection');
                     }
                 }
-            }
+            //}
         }
     }
 }
