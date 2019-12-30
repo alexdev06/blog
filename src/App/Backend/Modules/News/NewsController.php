@@ -4,7 +4,7 @@ namespace ADABlog\App\Backend\Modules\News;
 use \ADABlog\Fram\BackController;
 use \ADABlog\Fram\HTTPRequest;
 use \ADABlog\Entity\News;
-use ADABlog\Fram\Visitor;
+use \ADABlog\Fram\Visitor;
 
 class NewsController extends BackController
 {
@@ -12,12 +12,11 @@ class NewsController extends BackController
     {
         $this->page->addVar('title', 'Gestion des news');
         $this->page->addVar('visitor', $this->app->visitor());
+
         $manager = $this->managers->getManagerOf('News');
-
         $this->page->addVar('listNews', $manager->getList());
-        $this->page->addVar('newsCount', $manager->count());
 
-        $this->page->addVar('comments', $this->managers->getManagerOf('Comments')->getListUnpublished());
+        $this->page->addVar('newsCount', $manager->count());
     }
 
     public function executeShow(HTTPRequest $request)
@@ -72,7 +71,6 @@ class NewsController extends BackController
             'content' => $request->postData('content'),
             'userUsername' => $login
         ]);
-
 
         if ($request->postExists('id')) {
             $news->setId($request->postData('id'));

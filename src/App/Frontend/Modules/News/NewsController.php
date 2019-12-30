@@ -52,7 +52,7 @@ class NewsController extends BackController
 
         if ($request->postExists('pseudo')) {
             // reCAPTCHA
-           /* $secret = "6LehGMAUAAAAAGT7FXQAvNN5APjP9d6mh7Qlp_rM";
+            $secret = "6LehGMAUAAAAAGT7FXQAvNN5APjP9d6mh7Qlp_rM";
             $response = $_POST['g-recaptcha-response'];
             $remoteip = $_SERVER['REMOTE_ADDR'];
             
@@ -63,7 +63,7 @@ class NewsController extends BackController
             
             $decode = json_decode(file_get_contents($api_url), true);
         
-            if ($decode['success'] == true) {*/
+            if ($decode['success'] == true) {
                 $comment = new Comment([
                     'newsId' => $request->getData('id'),
                     'author' => $request->postData('pseudo'),
@@ -73,14 +73,12 @@ class NewsController extends BackController
                 if ($comment->isValid()) {
                     $this->managers->getManagerOf('Comments')->save($comment);
                     $this->app->visitor()->setFlash('Le commentaire a été envoyé.');
-                    $this->app->httpResponse()->redirect('news-'.$request->getData('id'));
-                    
                 } else {
                     $this->page->addVar('erreurs', $comment->erreurs());
                 }
                 $this->page->addVar('comment', $comment);
                 
-            //}
+            }
         }
 
     }

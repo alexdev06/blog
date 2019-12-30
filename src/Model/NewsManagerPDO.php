@@ -81,7 +81,8 @@ class NewsManagerPDO extends NewsManager
 
     public function add(News $news)
     {
-        $sql = 'INSERT INTO news SET author = :author, title = :title, lead=:lead, content = :content, date_create = NOW(), date_update = NOW(), user_username = :user_username';
+        $sql = 'INSERT INTO news(author, title, lead, content, date_create, date_update, user_username) VALUES(:author, :title, :lead, :content, NOW(), NOW(), :user_username)';
+
         $request = $this->dao->prepare($sql);
 
         $request->bindValue(':title', $news->title());
