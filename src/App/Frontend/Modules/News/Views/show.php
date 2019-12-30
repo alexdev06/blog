@@ -24,7 +24,15 @@
             <div class="col-lg-10 mx-auto my-4 ">
                 <div class="row justify-content-between">
                     <div class="col-9 intro-news">Par <em><?= $news['author'] ?></em>, le <?= $news['dateUpdate']->format('d/m/Y à H\hi') ?></div>
-                    <div class="col-3 text-right">posté par <em><?= htmlspecialchars($news['userUsername']) ?></em></div>
+                    <?php
+                    if (!empty($news['userUsername'])) {
+                        ?>
+                        <div class="col-3 text-right">
+                            posté par <em><?= htmlspecialchars($news['userUsername']) ?></em>
+                        </div>
+                    <?php
+                    }
+                    ?>
                 </div>
                 <hr />
 
@@ -39,12 +47,14 @@
                     </small>
                 </p>
                 <?php } ?>
+                <br />
+                <hr class="news-comm-separator">
                 <?php
                 if (!empty($comments)) {?>
-
                     <p class="text-center"><a href="#comment_form" class="add-comment-link js-scroll-trigger nav-link py-3 px-0 px-lg-3 rounded">Ajouter un commentaire</a></p>
-            <?php }
-            ?>
+                <?php 
+                }
+                ?>
             </div>
         </div>
 
@@ -53,37 +63,29 @@
             
                 <?php
                 if (empty($comments)) {
-                
                 echo '<p class="no-comment">Aucun commentaire n\'a encore été posté!</p>';
                 } else {
-                    echo '<p class="no-comment"><em>Commentaires :</em></p><br />';
+                    echo '<p class="no-comment"><em>Commentaires :</em></p>';
                 }
                 foreach ($comments as $comment) {
                 ?>
-                <fieldset>
-                    <legend class="legend-comm">
-                    Posté par <strong><?= htmlspecialchars($comment['author']) ?> </strong> le <?= $comment['dateCreate']->format('d/m/Y à H\hi') ?> :
-                    </legend>
+                <hr class="comm-separator" />
+                <div>
+                    <p class="legend-comm">
+                        Posté par <strong><?= htmlspecialchars($comment['author']) ?> </strong> le <?= $comment['dateCreate']->format('d/m/Y à H\hi') ?> :
+                        </p>
                     <p><?= nl2br(htmlspecialchars($comment['content'])) ?></p>
-                    <hr />
-                </fieldset>
+                </div>
                 <?php
                 }
                 ?>
             </div>
         </div>
 
-        <div class="row mt-4">
-            <div class="col-lg-10 mx-auto">  
-                <p class="intro">
-                    Pour laisser un commentaire, remplissez le formulaire ci-dessous : *
-                </p>
-            </div>
-        </div>
-
         <div class="row my-4">
             <div class="col-lg-10 mx-auto my-4">
                 <form id="comment_form"  action="" method="post">
+                    <legend> Commentez cet article :</legend>
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                             <label>Pseudo</label>
@@ -92,15 +94,15 @@
                     </div>
                     <div class="control-group">
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                            <label>Commentaire</label>
-                            <textarea rows="5" name="message" class="form-control" placeholder="Commentaire" id="message" required data-validation-required-message="Entrez votre commentaire."></textarea>
+                            <label>Commentaire*</label>
+                            <textarea rows="5" name="message" class="form-control" placeholder="Commentaire*" id="message" required data-validation-required-message="Entrez votre commentaire."></textarea>
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
-                    <br /><!--
+                    <br />
                     <div class="form-group">
                         <div class="g-recaptcha" data-sitekey="6LehGMAUAAAAAAu-G1BzjkHTyWssiMYxtuL--4bm"></div>
-                    </div>-->
+                    </div>
                     <br>
                     <div id="success"></div>
                     <div class="row">

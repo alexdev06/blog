@@ -15,7 +15,7 @@ class RegistrationController extends BackController
         if ($request->postExists('login')) {
 
             // reCAPTCHA
-            /*$secret = "6LehGMAUAAAAAGT7FXQAvNN5APjP9d6mh7Qlp_rM";
+            $secret = "6LehGMAUAAAAAGT7FXQAvNN5APjP9d6mh7Qlp_rM";
             $response = $_POST['g-recaptcha-response'];
             $remoteip = $_SERVER['REMOTE_ADDR'];
             
@@ -26,7 +26,7 @@ class RegistrationController extends BackController
             
             $decode = json_decode(file_get_contents($api_url), true);
         
-            if ($decode['success'] == true) {}*/
+            if ($decode['success'] == true) {
 
                 if (empty($request->postData('name')) || empty($request->postData('lastName')) || empty($request->postData('email')) || empty($request->postData('login')) || empty($request->postData('password')) || empty($request->postData('passCheck')) ) {
                     $this->app->visitor()->setFlash('Tous les champs ne sont pas remplis!');
@@ -69,7 +69,7 @@ class RegistrationController extends BackController
                         }
                     }
                 }
-            //}
+            }
         }
 
     }

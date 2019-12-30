@@ -77,7 +77,7 @@ class CommentsManagerPDO extends CommentsManager
 
     public function add(Comment $comment)
     {
-        $sql = 'INSERT INTO comment SET news_id = :news_id, author = :author, content = :content, date_create = NOW()';
+        $sql = 'INSERT INTO comment(news_id, author, content, date_create) VALUES(:news_id, :author, :content, NOW())';
         $request = $this->dao->prepare($sql);
 
         $request->bindValue(':news_id', $comment->newsId(), \PDO::PARAM_INT);

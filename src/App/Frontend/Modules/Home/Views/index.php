@@ -79,6 +79,18 @@
         </div>
         <div class="divider-custom-line"></div>
     </div>
+    
+    <?php
+    if ($visitor->hasFlash()) {
+        ?>
+        <div class="row">
+            <div class="col-lg-6 mx-auto my-4">
+                <p class="flash text-center"> <?= $visitor->getFlash(); ?> </p>
+            </div>
+        </div>
+        <?php
+    }
+    ?>
 
     <!-- Contact Section Form -->
     <div class="row">
@@ -90,6 +102,7 @@
 
     <div class="row">
         <div class="col-lg-10 mx-auto">
+            
             <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
             <form method="post">
                 <div class="control-group">
@@ -121,15 +134,13 @@
                     </div>
                 </div>
                 <br />
-                <div class="control-group">
-                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                        <div class="g-recaptcha" data-sitekey="6LehGMAUAAAAAAu-G1BzjkHTyWssiMYxtuL--4bm"></div>
-                    </div>
+                <div class="form-group">
+                    <div class="g-recaptcha" data-sitekey="6LehGMAUAAAAAAu-G1BzjkHTyWssiMYxtuL--4bm"></div>
                 </div>
                 <br />
                 <div id="success"></div>
                 <div class="row">
-                    <div class="form-groupc col-6">
+                    <div class="form-group col-6">
                         <button type="submit" class="btn btn-primary btn-lg" id="sendMessageButton" onclick="return confirm('Valider votre choix?');">Envoyer</button>
                     </div>
                     <div class="form-group col-6 ">
