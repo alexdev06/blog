@@ -1,4 +1,5 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/92b35983276e4d19a2b2870223201985)](https://www.codacy.com/manual/alexdev06/blog?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=alexdev06/blog&amp;utm_campaign=Badge_Grade)
+
 INSTALLATION DU SITE
 
 
